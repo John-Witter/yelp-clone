@@ -1,8 +1,9 @@
 // backend/routes/api/index.js
 const router = require('express').Router()
+const sessionRouter = require('../api/session.js')
+const usersRouter = require('../api/users')
 
-router.post('/test', function(req,res) {
-    res.json({ requestBody: req.body })
-})
+router.use('/session', sessionRouter)
+router.use('/users', usersRouter)
 
 module.exports = router
