@@ -10,7 +10,6 @@ const handleValidationErrors = (req, _res, next) => {
     const validationErrors = validationResult(req);
 
     if (!validationErrors.isEmpty()) {
-        console.log('error:::::::')
         const errors = validationErrors
             .array()
             .map((error) => `${error.msg}`);
