@@ -1,3 +1,6 @@
+// frontend/src/store/session.js
+
+import { set } from 'js-cookie'
 import { csrfFetch } from './csrf'
 
 const SET_USER = 'session/setUser'
@@ -25,6 +28,15 @@ export const login = (user) => async dispatch => {
             password
         })
     })
+    const data = await res.json()
+    dispatch(setUser(data.user))
+    return res
+}
+
+//thunk action to call GET /api/session to set session user to the user
+// in the response body
+export const restoreUser = () => async dispatch => {
+    const res = await csrfFetch('/api/session')
     const data = await res.json()
     dispatch(setUser(data.user))
     return res
