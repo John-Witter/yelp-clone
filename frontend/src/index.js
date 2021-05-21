@@ -8,6 +8,7 @@ import './index.css';
 import App from './App';
 import configureStore from "./store";
 import { restoreCSRF, csrfFetch } from "./store/csrf";
+import * as sessionActions from "./store/session";
 
 ReactDOM.render(
   <React.StrictMode>
@@ -24,6 +25,7 @@ if (process.env.NODE_ENV !== 'production') {
 
   window.csrfFetch = csrfFetch
   window.store = store
+  window.sessionActions = sessionActions
 }
 
 function Root() {
