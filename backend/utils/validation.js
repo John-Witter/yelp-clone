@@ -7,22 +7,22 @@ const { validationResult } = require('express-validator')
 // https://www.npmjs.com/package/express-validator
 
 const handleValidationErrors = (req, _res, next) => {
-    const validationErrors = validationResult(req)
+    const validationErrors = validationResult(req);
 
     if (!validationErrors.isEmpty()) {
+        console.log('error:::::::')
         const errors = validationErrors
             .array()
-            .map(e => `${e.msg}`)
+            .map((error) => `${error.msg}`);
 
-        const err = Error('Bad request.')
-        err.errors = errors
-        err.status = 400
-        err.title = 'Bad request.'
-        next(err)
+        const err = Error('Bad request.');
+        err.errors = errors;
+        err.status = 400;
+        err.title = 'Bad request.';
+        next(err);
     }
-
-    next()
-}
+    next();
+};
 
 module.exports = {
     handleValidationErrors
