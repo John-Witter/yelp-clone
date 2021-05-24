@@ -1,36 +1,37 @@
 import { useState } from "react";
+import * as apiCalls from "../../store/yelp-api";
+const yelpKey = process.env.REACT_APP_BEARER_TOKEN
+
 
 const RestaurantSearch = () => {
 
     //used to format the user input to use with the Yelp Fusion API
     const [userInput, setUserInput] = useState('')
-    const [restaurantName, setRestaurantName] = useState('')
-    const [restaurantLocation, setRestaurantLocation] = useState('')
-    const [restaurantCuisine, setRestaurantCuisine] = useState('')
     const [searchType, setSearchType] = useState('restaurantName')
     const [requestHeader, setRequestHeader] = useState('')
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
 
-        switch (searchType) {
-            case 'restaurantName':
-                setRestaurantName(userInput)
-                break
-            case 'restaurantLocation':
-                setRestaurantLocation(userInput)
-                break
-            case 'restaurantCuisine':
-                setRestaurantCuisine(userInput)
-                break
-            default: return
-        }
+        // switch(searchType) {
+        //     case 'restaurantName':
+        //         // const business = await apiCalls.getBusinessByName(userInput)
+                
+        //         console.log('business', business)
+        //         break
+        //     default: break
+        // }
 
-        console.log('search type:', searchType)
-        console.log('restaurant name:', restaurantName)
-        console.log('restaurant location:', restaurantLocation)
-        console.log('restaurant cuisine:', restaurantCuisine)
+        const res = await fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=wendys&location=miami`, {
+            headers: {
+                Authorization: `Bearer ${yelpKey}`
+            }
+        })
+        const data = await res.json()
+        console.log(data)
+
     }
+
 
 
     return (
