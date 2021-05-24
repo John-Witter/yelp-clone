@@ -11,19 +11,18 @@ export const getBusinesses = (payload) => ({
 
 export const getBusinessByName = (term, location) => async (dispatch) => {
 
-    // const res = await fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}`, {
-    //     headers: {
-    //         Authorization: `Bearer ${yelpKey}`
-    //     }
-    // })
-
+    const res = await fetch(`${baseUrl}term=${term}&location=${location}`, {
+        headers: {
+            Authorization: `Bearer ${yelpKey}`
+        }
+    })
+    
+    const data = await res.json()
+    
+    dispatch(getBusinesses(data))
+    return data
+    
     // const res = fetch('https://jsonplaceholder.typicode.com/todos/1')
-
-    // const data = await res.json()
-    // console.log(data)
-    // dispatch(getBusinesses(data))
-    // return data
-
 }
 
 

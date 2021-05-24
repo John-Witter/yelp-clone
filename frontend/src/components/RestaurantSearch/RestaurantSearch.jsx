@@ -1,5 +1,6 @@
 import { useState } from "react";
-import * as apiCalls from "../../store/yelp-api";
+import { useDispatch } from "react-redux";
+import { getBusinessByName } from "../../store/yelp-api";
 const yelpKey = process.env.REACT_APP_BEARER_TOKEN
 
 
@@ -8,20 +9,21 @@ const RestaurantSearch = () => {
     //used to format the user input to use with the Yelp Fusion API
     const [searchTerm, setSearchTerm] = useState('')
     const [location, setLocation] = useState('')
+    const dispatch = useDispatch()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        // const business = await apiCalls.getBusinessByName(searchTerm, location)
-        // console.log('businesss', business)
+        const data = await dispatch(getBusinessByName(searchTerm, location))
+        console.log('data', data)
 
-        const res = await fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${searchTerm}&location=${location}`, {
-            headers: {
-                Authorization: `Bearer ${yelpKey}`
-            }
-        })
-        const data = await res.json()
-        console.log(data)
+        // const res = await fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${searchTerm}&location=${location}`, {
+        //     headers: {
+        //         Authorization: `Bearer ${yelpKey}`
+        //     }
+        // })
+        // const data = await res.json()
+        // console.log(data)
 
     }
 
