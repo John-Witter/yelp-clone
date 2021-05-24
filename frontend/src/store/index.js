@@ -1,9 +1,11 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import sessionReducer from "./session";
+import yelpApiReducer from './yelp-api'
 
 const rootReducer = combineReducers({
-    session: sessionReducer
+    session: sessionReducer,
+    yelpAPI: yelpApiReducer
 })
 
 let enhancer
