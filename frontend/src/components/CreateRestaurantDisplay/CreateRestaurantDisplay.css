@@ -1,0 +1,34 @@
+.business-parent {
+
+    display: flex;
+    justify-content: center;
+    
+}
+
+
+.business-frame {
+    background: white;
+    width: 270px;
+    height: 400px;
+    margin: 10px;
+}
+
+.business-name {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.business-price {
+
+}
+
+.business-rating {
+
+}
+
+.business-photo {
+    height: 170px;
+    margin-bottom: 15px;
+    background-size: cover;
+
+}

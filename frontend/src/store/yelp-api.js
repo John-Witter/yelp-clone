@@ -29,7 +29,17 @@ export const getBusinessByName = (term, location) => async (dispatch) => {
 export default function yelpApiReducer(state = {}, action) {
     switch (action.type) {
         case GET_BUSINESSES:
-            return action.payload
+            console.log('action.payload', action.payload.businesses)
+            return {
+                ...state,
+                businesses: action.payload.businesses
+            }
+            // let newState = {...state}
+            // newState['businesses'] = action.payload.businesses.forEach(business => {
+            //     newState['businesses'][business.id] = business
+            // })
+            // return newState
+
         default:
             return state
     }

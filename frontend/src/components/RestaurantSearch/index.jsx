@@ -1,33 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { getBusinessByName } from "../../store/yelp-api";
-const yelpKey = process.env.REACT_APP_BEARER_TOKEN
+
 
 
 const RestaurantSearch = () => {
 
     //used to format the user input to use with the Yelp Fusion API
-    const [searchTerm, setSearchTerm] = useState('')
-    const [location, setLocation] = useState('')
+    const [searchTerm, setSearchTerm] = useState(null)
+    const [location, setLocation] = useState(null)
     const dispatch = useDispatch()
+    const history = useHistory()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
         const data = await dispatch(getBusinessByName(searchTerm, location))
-        console.log('data', data)
-
-        // const res = await fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${searchTerm}&location=${location}`, {
-        //     headers: {
-        //         Authorization: `Bearer ${yelpKey}`
-        //     }
-        // })
-        // const data = await res.json()
-        // console.log(data)
-
+        const searchObj = {'searchTerm': searchTerm, "location": location}
+        window.localStorage.setItem('searchObj', JSON.stringify(searchObj))
+        history.push('/restaurants')
     }
 
+    useEffect(() => {
+        const localSearchObj = JSON.parse(window.localStorage.getItem('searchObj'))
 
+        if (localSearchObj) {
+            let newSearchTerm = localSearchObj.searchTerm
+            let newSearchLocation = localSearchObj.searchLocation
+            console.log('!!!!!!#@#@#@#!@#!#')
+            dispatch(getBusinessByName(newSearchTerm, newSearchLocation))
+        }
+
+    }, [dispatch])
 
     return (
         <div className='search-form-container'>
