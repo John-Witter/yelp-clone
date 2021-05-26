@@ -19,7 +19,7 @@ const RestaurantSearch = () => {
         const data = await dispatch(getBusinessByName(searchTerm, location))
         const searchObj = {'searchTerm': searchTerm, "location": location}
         window.localStorage.setItem('searchObj', JSON.stringify(searchObj))
-        history.push('/restaurants')
+        history.push('/businesses')
     }
 
     useEffect(() => {
@@ -28,7 +28,6 @@ const RestaurantSearch = () => {
         if (localSearchObj) {
             let newSearchTerm = localSearchObj.searchTerm
             let newSearchLocation = localSearchObj.searchLocation
-            console.log('!!!!!!#@#@#@#!@#!#')
             dispatch(getBusinessByName(newSearchTerm, newSearchLocation))
         }
 
@@ -36,8 +35,6 @@ const RestaurantSearch = () => {
 
     return (
         <div className='search-form-container'>
-            <h2>Search for restaurants</h2>
-
             <form className="search-form" onSubmit={handleSubmit}>
 
                 <label htmlFor="search-input">Search For:</label>

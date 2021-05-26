@@ -29,7 +29,6 @@ export const getBusinessByName = (term, location) => async (dispatch) => {
 export default function yelpApiReducer(state = {}, action) {
     switch (action.type) {
         case GET_BUSINESSES:
-            console.log('action.payload', action.payload.businesses)
             return {
                 ...state,
                 businesses: action.payload.businesses
