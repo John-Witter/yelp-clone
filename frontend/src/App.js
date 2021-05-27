@@ -10,6 +10,7 @@ import SignupFormPage from './components/SignupFormPage'
 import Navigation from './components/Navigation'
 import RestaurantSearch from './components/RestaurantSearch'
 import ShowRestaurants from "./components/ShowRestaurants";
+import ShowSingleRestaurant from './components/ShowSingleRestaurant'
 import * as sessionActions from './store/session'
 
 function App() {
@@ -32,8 +33,11 @@ function App() {
           <Route path="/signup">
             <SignupFormPage />
           </Route>
-          <Route path="/businesses">
+          <Route exact path="/businesses">
             <ShowRestaurants />
+          </Route>
+          <Route path="/businesses/:id">          
+            <ShowSingleRestaurant />
           </Route>
         </Switch>
       )}
