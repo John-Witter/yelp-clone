@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getBusinessById } from '../../store/yelp-api'
+import Review from "../Review";
 
 const ShowSingleRestaurant = () => {
     const { id } = useParams()
@@ -25,6 +26,7 @@ const ShowSingleRestaurant = () => {
                 <div className='business-name'>{business.name}</div>
                 <div className='business-price'>Price: {business.price}</div>
                 <div className='business-rating'>Rating: {business.rating}</div>
+                <Review id={id}/>
             
         </div>
 
