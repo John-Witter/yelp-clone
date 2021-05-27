@@ -4,14 +4,15 @@ import './ShowRestaurants.css'
 
 const ShowRestaurants = () => {
     const { searchTerm, location } = JSON.parse(window.localStorage.getItem('searchObj'))
-    const businessesObj = useSelector(state => state.yelpAPI.businesses)
+    const businessesObj = useSelector(state => Object.values(state.yelpAPI))
     const history = useHistory()
-    // console.log('businesses', businesses)
     if (!businessesObj) return null
-    const businesses = Object.values(businessesObj)
+    // const businesses = Object.values(businessesObj)
+    
+    console.log('businessesObj', businessesObj)
 
     const handleBusinessClick = (id) => {
-        history.push(`/businesses/${id}`)
+        // history.push(`/businesses/${id}`)
     }
 
     return (
@@ -23,8 +24,8 @@ const ShowRestaurants = () => {
             </article>
 
             <div className='business-parent'>
-                {businesses?.map((business, idx) => (
-                    <div className='business-frame' key={businesses.id}
+                {businessesObj?.map((business, idx) => (
+                    <div className='business-frame' key={business.id}
                         onClick={() => handleBusinessClick(business.id)}
                     >
                         <img src={business.image_url} alt={business.name}

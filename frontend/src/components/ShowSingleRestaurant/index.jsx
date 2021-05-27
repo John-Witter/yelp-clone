@@ -8,16 +8,16 @@ const ShowSingleRestaurant = () => {
     const dispatch = useDispatch()
     const [business, setBusiness] = useState(null)
     
-    useEffect(() => {
-        const getBusiness = async () => {
-            const currentBusiness = await dispatch(getBusinessById(id))
-            setBusiness(currentBusiness)
-            console.log('currentBusiness', currentBusiness)
-            console.log('business', business)
-        }
+    // useEffect(() => {
+    //     const getBusiness = async () => {
+    //         const currentBusiness = await dispatch(getBusinessById(id))
+    //         setBusiness(currentBusiness)
+    //         console.log('currentBusiness', currentBusiness)
+    //         console.log('business', business)
+    //     }
         
-        getBusiness()
-    }, [id, dispatch])
+    //     getBusiness()
+    // }, [id, dispatch])
     // console.log('business', business)
     return (
         <div>

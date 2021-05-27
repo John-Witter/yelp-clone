@@ -25,17 +25,20 @@ export const getBusinessByName = (term, location) => async (dispatch) => {
         body: JSON.stringify({term, location})
     })
     
-    const data = await res.json()
-    console.log('data', data.businesses)
-    dispatch(getBusinesses(data))
-    return data
+    const result = await res.json()
+    // console.log('data', result.data.businesses)
+    dispatch(getBusinesses(result.data.businesses))
+    return result.data.businesses
 }
 
 export const getBusinessById = (id) => async (dispatch) => {
     // the following link worked while testing a page by id
     // `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${"eXIEbOrEar3x0ye0RYMLEw"}`
-    const res = await fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${id}`, {
-
+    const res = await csrfFetch(`/api/yelp/${id}`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        }
     })
 
     const data = await res.json()
@@ -43,20 +46,16 @@ export const getBusinessById = (id) => async (dispatch) => {
     return data
 }
 
-
 export default function yelpApiReducer(state = {}, action) {
     switch (action.type) {
         case GET_BUSINESSES:
-            console.log('GET_BUSINESSES', action.businesses)
-            return {
-                ...state,
-                businesses: action.businesses.businesses
-            }
-            // let newState = {...state}
-            // newState['businesses'] = action.businesses.businesses.forEach(business => {
-            //     newState['businesses'][business.id] = business
-            // })
-            // return newState
+            let newObj = {...state}
+            console.log('action.businesses', action)
+            action.businesses.forEach(business => {
+                newObj[business.id] = business
+            })
+            return newObj
+  
         case GET_SINGLE_BUSINESS:
             return {
                 ...state,
