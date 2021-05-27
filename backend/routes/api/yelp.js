@@ -20,13 +20,12 @@ const fetch = require('node-fetch')
 const router = express.Router()
 
 const yelpKey = process.env.BEARER_TOKEN
-const baseUrl = 'https://api.yelp.com/v3/businesses/?'
+const baseUrl = 'https://api.yelp.com/v3/businesses/'
 
 router.post('/',
     asyncHandler(async (req, res) => {
         const {term, location} = req.body
         const reqBody = req.body
-        console.log('reqBody', reqBody)
         const result = await fetch(`${baseUrl}search?term=${term}&location=${location}`, {
             headers: {
                 Authorization: `Bearer ${yelpKey}`

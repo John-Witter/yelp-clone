@@ -7,12 +7,9 @@ const ShowRestaurants = () => {
     const businessesObj = useSelector(state => Object.values(state.yelpAPI))
     const history = useHistory()
     if (!businessesObj) return null
-    // const businesses = Object.values(businessesObj)
-    
-    console.log('businessesObj', businessesObj)
 
     const handleBusinessClick = (id) => {
-        // history.push(`/businesses/${id}`)
+        history.push(`/businesses/${id}`)
     }
 
     return (

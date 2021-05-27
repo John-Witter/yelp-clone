@@ -6,28 +6,25 @@ import { getBusinessById } from '../../store/yelp-api'
 const ShowSingleRestaurant = () => {
     const { id } = useParams()
     const dispatch = useDispatch()
-    const [business, setBusiness] = useState(null)
+    const [business, setBusiness] = useState([])
     
-    // useEffect(() => {
-    //     const getBusiness = async () => {
-    //         const currentBusiness = await dispatch(getBusinessById(id))
-    //         setBusiness(currentBusiness)
-    //         console.log('currentBusiness', currentBusiness)
-    //         console.log('business', business)
-    //     }
-        
-    //     getBusiness()
-    // }, [id, dispatch])
-    // console.log('business', business)
+    useEffect(() => {
+        const getCurrentBusiness = async() => {
+            const currentBusiness = await dispatch(getBusinessById(id))
+            console.log('currentBusiness', currentBusiness)
+            setBusiness(currentBusiness.data)
+        }
+        getCurrentBusiness()
+    }, [dispatch, id])
     return (
         <div>
             
-                {/* <img src={business.image_url} alt={business.name}
+                <img src={business.image_url} alt={business.name}
                     className='business-photo'
                 />
                 <div className='business-name'>{business.name}</div>
                 <div className='business-price'>Price: {business.price}</div>
-                <div className='business-rating'>Rating: {business.rating}</div> */}
+                <div className='business-rating'>Rating: {business.rating}</div>
             
         </div>
 
