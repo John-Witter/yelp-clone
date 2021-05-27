@@ -1,23 +1,25 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler')
-const Review = require('../../db/models/review')
+const { Review } = require('../../db/models')
 const router = express.Router()
 
 router.post(
     '/:id',
     asyncHandler(async (req, res) => {
-        const businessId = parseInt(req.params.id, 10)
-        const  { userId } = req.session.auth
-        const reviewText = req.body
-        const review = await Review.build({
+        const businessId = req.params.id
+        const userId = req.body.userId
+        const reviewText = req.body.review
+
+        console.log('reviewText', reviewText)
+        console.log('userId', userId)
+
+        const review = await Review.create({
             reviewText,
             userId,
             businessId
         })
-        console.log('review', review)
-        await review.save()
-        console.log('review!!!!', review)
-        res.render({review})
+
+        res.json({review})
     })
 )
 

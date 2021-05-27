@@ -1,23 +1,26 @@
 import { useState } from "react";
+import { useSelector } from "react-redux";
 import { csrfFetch } from '../../store/csrf'
 
 const Review = ({ id }) => {
     const [review, setReview] = useState('')
+    const user = useSelector(state => state.session.user)
+    const userId = user.id
 
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const res = csrfFetch(`/review/${id}`, {
+        const res = await csrfFetch(`/api/review/${id}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(review)
+            body: JSON.stringify({review, userId})
         })
 
-        console.log('res', res)
-        const data = await res.parse()
-        console.log('!!!review', data)
+        
+        const data = await res.json()        
+        console.log('data.review', data.review)
     }
     return (
         <div className="review-form-container">

@@ -8,6 +8,7 @@ const ShowSingleRestaurant = () => {
     const { id } = useParams()
     const dispatch = useDispatch()
     const [business, setBusiness] = useState([])
+    const user = useSelector(state => state.session.user)
     
     useEffect(() => {
         const getCurrentBusiness = async() => {
@@ -26,7 +27,7 @@ const ShowSingleRestaurant = () => {
                 <div className='business-name'>{business.name}</div>
                 <div className='business-price'>Price: {business.price}</div>
                 <div className='business-rating'>Rating: {business.rating}</div>
-                <Review id={id}/>
+                {user && <Review id={id}/>}
             
         </div>
 
