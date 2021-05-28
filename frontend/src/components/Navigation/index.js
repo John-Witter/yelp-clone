@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 import ProfileButton from "./ProfileButton";
+import RestaurantSearch from '../RestaurantSearch'
 import './Navigation.css'
 
 const Navigation = ({ isLoaded }) => {
@@ -20,12 +21,13 @@ const Navigation = ({ isLoaded }) => {
     }
 
     return (
-        <ul>
+        <ul className='nav-body'>
             <NavLink exact to='/'>
                 Home
             </NavLink>
 
             {isLoaded && sessionLinks}
+            <RestaurantSearch />
         </ul>
         
     )

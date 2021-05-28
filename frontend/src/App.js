@@ -11,6 +11,7 @@ import Navigation from './components/Navigation'
 import RestaurantSearch from './components/RestaurantSearch'
 import ShowRestaurants from "./components/ShowRestaurants";
 import ShowSingleRestaurant from './components/ShowSingleRestaurant'
+import HomePage from './components/HomePage'
 import * as sessionActions from './store/session'
 
 function App() {
@@ -24,9 +25,11 @@ function App() {
   return isLoaded && (
     <>
       <Navigation isLoaded={isLoaded} />
-      <RestaurantSearch />
       {isLoaded && (
         <Switch>
+          <Route exact path = '/'>
+            <HomePage />
+          </Route>
           <Route path="/login">
             <LoginFormPage />
           </Route>

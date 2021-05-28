@@ -22,6 +22,7 @@ const RestaurantSearch = () => {
         history.push('/businesses')
     }
 
+    //add to store as thunk
     useEffect(() => {
         const localSearchObj = JSON.parse(window.localStorage.getItem('searchObj'))
 

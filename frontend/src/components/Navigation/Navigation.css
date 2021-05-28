@@ -1,0 +1,9 @@
+.nav-body { 
+    display: flex;
+    justify-content: space-around;
+    background-color: #f5bdb3;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    border: 1px solid #2d0c06;
+    border-radius: 20px;
+}
