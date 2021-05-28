@@ -9,7 +9,7 @@ const Navigation = ({ isLoaded }) => {
 
     let sessionLinks
     if (sessionUser) {
-        sessionLinks = 
+        sessionLinks =
             <ProfileButton user={sessionUser} />
     } else {
         sessionLinks = (
@@ -22,14 +22,13 @@ const Navigation = ({ isLoaded }) => {
 
     return (
         <ul className='nav-body'>
-            <NavLink exact to='/'>
-                Home
+            <NavLink exact to='/' className='title'>
+                <div className='title'>Yelp Jr.</div>
             </NavLink>
-
             {isLoaded && sessionLinks}
             <RestaurantSearch />
         </ul>
-        
+
     )
 }
 
