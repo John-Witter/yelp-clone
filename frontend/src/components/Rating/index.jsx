@@ -20,7 +20,7 @@ const Rating = ({ id }) => {
         })
 
         const data = await res.json()
-        console.log('data', data.newRating)
+        // console.log('data', data.newRating)
     }
 
     return (
