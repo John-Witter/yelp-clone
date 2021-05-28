@@ -22,13 +22,6 @@ const ShowSingleRestaurant = () => {
     }, [dispatch, id])
     return (
         <div className='business-parent'>
-            {/*             
-                <img src={business.image_url} alt={business.name}
-                    className='business-photo'
-                />
-                <div className='business-name'>{business.name}</div>
-                <div className='business-price'>Price: {business.price}</div>
-                <div className='business-rating'>Rating: {business.rating}</div> */}
 
             <div className='business-frame' key={business.id}>
                 <img src={business.image_url} alt={business.name}
