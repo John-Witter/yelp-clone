@@ -8,7 +8,6 @@ import { Route, Switch } from 'react-router-dom'
 import LoginFormPage from './components/LoginFormPage'
 import SignupFormPage from './components/SignupFormPage'
 import Navigation from './components/Navigation'
-import RestaurantSearch from './components/RestaurantSearch'
 import ShowRestaurants from "./components/ShowRestaurants";
 import ShowSingleRestaurant from './components/ShowSingleRestaurant'
 import HomePage from './components/HomePage'

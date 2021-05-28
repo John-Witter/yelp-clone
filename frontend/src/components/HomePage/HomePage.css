@@ -9,3 +9,66 @@
 .search-term-result {
     text-align: center;
 }
+
+.business-parent {
+/* 
+    display: flex;
+    justify-content: center; */
+    padding: 40px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    grid-gap: 20px;
+    border: 2px solid #148295;
+    border-radius: 20px;
+    justify-items: center;
+    margin: 1rem;
+    width: 100%vw;
+    background-color: #e0f7fb;
+}
+
+.searchTermResult {
+    margin: 1rem;
+}
+
+.searchDisplayText {
+    margin: 1rem;
+}
+
+
+.business-frame {
+    border: 2px solid #08363f;
+    border-radius: 20px;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f7fdfe;
+}
+
+.business-name {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.business-price {
+
+}
+
+.business-rating {
+
+}
+
+.business-photo {
+    height: 50%;
+    width: 50%;
+    
+    margin-bottom: 15px;
+    background-size: cover;
+
+}
+
+.business-frame:hover {
+    cursor: pointer;
+    box-shadow: 3px 3px #107383, -1em 0 .4em #0a454f;
+}
