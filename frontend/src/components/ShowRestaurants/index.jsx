@@ -15,11 +15,11 @@ const ShowRestaurants = () => {
     return (
         <div>
 
-            <h1>"{searchTerm}" near "{location}"</h1>
-            <article>
+
+            <h1 className='searchTermResult'>{searchTerm} near {location}</h1>
+            <article className='searchDisplayText'>
                 <p>Here's what we found for your search</p>
             </article>
-
             <div className='business-parent'>
                 {businessesObj?.map((business, idx) => (
                     <div className='business-frame' key={business.id}
