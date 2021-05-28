@@ -21,6 +21,7 @@ const Review = ({ id }) => {
         
         const data = await res.json()        
         console.log('data.review', data.review)
+        setReview('')
     }
     return (
         <div className="review-form-container">
