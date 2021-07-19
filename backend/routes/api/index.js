@@ -1,10 +1,10 @@
 // backend/routes/api/index.js
 const router = require('express').Router()
-const sessionRouter = require('../api/session.js')
-const usersRouter = require('../api/users')
-const yelpRouter = require('../api/yelp')
-const reviewRouter = require('../api/reviews')
-const ratingRouter = require('../api/ratings')
+const sessionRouter = require('./session.js')
+const usersRouter = require('./users')
+const yelpRouter = require('./yelp')
+const reviewRouter = require('./reviews')
+const ratingRouter = require('./ratings')
 
 router.use('/session', sessionRouter)
 router.use('/users', usersRouter)
