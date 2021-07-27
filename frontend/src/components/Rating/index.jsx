@@ -20,18 +20,18 @@ const Rating = ({ id }) => {
             body: JSON.stringify({rating, userId})
         })
 
-        const data = await res.json()
+        await res.json()
         // console.log('data', data.newRating)
     }
 
     return (
         <div className="rating-container">
             <label htmlFor="rating" className='rating-label'>Rating</label>
-            <input id='rating' className="rating" type="radio" name="ratingValue" value='1' id='1' onClick={(e) => handleClick(e)}/>
-            <input id='rating' className="rating" type="radio" name="ratingValue" value='2' id='2' onClick={(e) => handleClick(e)} />
-            <input id='rating' className="rating" type="radio" name="ratingValue" value='3' id='3' onClick={(e) => handleClick(e)} />
-            <input id='rating' className="rating" type="radio" name="ratingValue" value='4' id='4' onClick={(e) => handleClick(e)} />
-            <input id='rating' className="rating" type="radio" name="ratingValue" value='5' id='5' onClick={(e) => handleClick(e)} />
+            <input id='rating1' className="rating" type="radio" name="ratingValue" value='1' onClick={(e) => handleClick(e)}/>
+            <input id='rating2' className="rating" type="radio" name="ratingValue" value='2' onClick={(e) => handleClick(e)} />
+            <input id='rating3' className="rating" type="radio" name="ratingValue" value='3' onClick={(e) => handleClick(e)} />
+            <input id='rating4' className="rating" type="radio" name="ratingValue" value='4' onClick={(e) => handleClick(e)} />
+            <input id='rating5' className="rating" type="radio" name="ratingValue" value='5' onClick={(e) => handleClick(e)} />
         </div>
     )
 }

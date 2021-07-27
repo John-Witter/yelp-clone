@@ -16,7 +16,7 @@ const RestaurantSearch = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
 
-        const data = await dispatch(getBusinessByName(searchTerm, location))
+        await dispatch(getBusinessByName(searchTerm, location))
         const searchObj = {'searchTerm': searchTerm, "location": location}
         window.localStorage.setItem('searchObj', JSON.stringify(searchObj))
         history.push('/businesses')
