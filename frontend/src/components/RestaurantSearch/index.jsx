@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getBusinessByName } from "../../store/yelp-api";
+import './RestaurantSearch.css'
 
 
 
@@ -45,8 +46,8 @@ const RestaurantSearch = () => {
                 />
 
 
-                <label htmlFor="search-input">Near:</label>
-                <input type="text" id='search-input' className="search-input"
+                <label htmlFor="location-input">Near:</label>
+                <input type="text" id='location-input' className="location-input"
                     placeholder="enter location" required
                     onChange={e => setLocation(e.target.value)}
                 />

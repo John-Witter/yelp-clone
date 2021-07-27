@@ -49,7 +49,8 @@ export const getBusinessById = (id) => async (dispatch) => {
 export default function yelpApiReducer(state = {}, action) {
     switch (action.type) {
         case GET_BUSINESSES:
-            let newObj = {...state}
+            // let newObj = {...state}
+            let newObj = {}
             action.businesses.forEach(business => {
                 newObj[business.id] = business
             })
