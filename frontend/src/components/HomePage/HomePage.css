@@ -12,11 +12,16 @@
     background-color: #e0f7fb;
 }
 
-.searchTermResult {
+.tag-line {
+    display: flex;
+    justify-content: center;
+}
+
+.search-term-result {
     /* margin: 1rem; */
     display: flex;
     justify-content: center;
-    font-size: 1.5rem;
+    font-size: .85rem;
     font-weight: 525;
 }
 

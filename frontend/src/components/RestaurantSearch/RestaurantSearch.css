@@ -1,0 +1,23 @@
+.search-form-container {
+    /* display: flex; */
+    text-decoration: none;
+}
+
+.search-form {
+    display: flex;
+    align-items: center;
+}
+
+.search-input {
+    margin-right: 1rem;
+    margin-left: .5rem;
+}
+
+.location-input {
+    margin-right: .125rem;
+    margin-left: .5rem;
+}
+
+.search-btn {
+    text-decoration: none;
+}
