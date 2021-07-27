@@ -6,6 +6,11 @@
     width: 322px; /* this is the width of the business image */
 }
 
+.rating:checked {
+    /* color: #FBF2E0; */
+    color: #000;
+}
+
 .rating:hover {
     cursor: pointer;
 }
