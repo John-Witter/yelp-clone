@@ -7,8 +7,7 @@ import './ShowRestaurants.css'
 const ShowRestaurants = () => {
     const dispatch = useDispatch()
     const businessesObj = useSelector(state => Object.values(state.yelpAPI))
-    const [searchTerm, setSearchTerm] = useState('')
-    const [location, setLocation] = useState('')
+    const { searchTerm, location } = JSON.parse(window.localStorage.getItem('searchObj'))
     const history = useHistory()
 
     useEffect(() => {
@@ -23,7 +22,7 @@ const ShowRestaurants = () => {
 
     return (
         <div>
-            <h1 className='searchTermResult'>{searchTerm} near {location}</h1>
+            {searchTerm && location && <h1 className='searchTermResult'>{searchTerm} near {location}</h1>}
             {/* <article className='searchDisplayText'>
                 <p>Here's what we found for your search</p>
             </article> */}
