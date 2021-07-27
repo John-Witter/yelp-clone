@@ -11,8 +11,6 @@
     border-left: none;
     border-radius: 1rem;
     justify-items: center;
-    margin: 0;
-    width: 100%vw;
     background-color: #e0f7fb;
 }
 
@@ -30,14 +28,14 @@
 
 
 .business-frame {
-    border: 2px solid #08363f;
+    border: 1px solid #B3C5C8;
     border-radius: .25rem;
-    width: 15rem;
+    width: 20rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #f7fdfe;
+    background-color: #C9DEE1;
 }
 
 .business-name {
@@ -51,15 +49,12 @@
 
 .business-rating {
     font-size: .75rem;
-    padding-bottom: 1rem;
 }
 
 .business-photo {
     height: 50%;
     width: 50%;
-    padding-top: 1rem;
     margin-bottom: 15px;
-    background-size: cover;
 
 }
 
