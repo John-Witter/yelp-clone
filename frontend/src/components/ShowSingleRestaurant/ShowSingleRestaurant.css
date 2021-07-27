@@ -1,31 +1,13 @@
-.business-parent {
-/* 
-    display: flex;
-    justify-content: center; */
+.single-business-parent {
     padding: 1.5rem 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
-    grid-gap: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     border-right: none;
     border-left: none;
-    justify-items: center;
-    /* background-color: #e0f7fb; */
 }
 
-.searchTermResult {
-    /* margin: 1rem; */
-    display: flex;
-    justify-content: center;
-    font-size: 1.5rem;
-    font-weight: 525;
-}
-
-.searchDisplayText {
-    margin: 1rem;
-}
-
-
-.business-frame {
+.single-business-frame {
     border: 1px solid #B3C5C8;
     border-radius: .25rem;
     width: 20rem;
@@ -56,7 +38,3 @@
 
 }
 
-.business-frame:hover {
-    cursor: pointer;
-    /* box-shadow: 3px 3px #107383, -1em 0 .4em #0a454f; */
-}

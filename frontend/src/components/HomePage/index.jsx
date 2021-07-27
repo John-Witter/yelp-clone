@@ -30,7 +30,7 @@ const HomePage = () => {
                 <div>
                     <div className='business-parent'>
                         {businessesObj?.map((business, idx) => (
-                            <div className='business-frame' key={business.id}
+                            <div className='business-frame' key={`${business.id}Home`}
                                 onClick={() => handleBusinessClick(business.id)}
                             >
                                 <img src={business.image_url} alt={business.name}
