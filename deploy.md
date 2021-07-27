@@ -1,16 +1,19 @@
 To deploy:
 
-heroku login
-git heroku push main //main is current working branch
+    heroku login
+    git push heroku main
 
 
 Heroku terminal:
 
-heroku bash
+    heroku bash
 
 
 For Application Error:
-heroku logs
+    
+    heroku logs
+
 
 Continuosly output logs to terminal
-heroku logs --tail
+    
+    heroku logs --tail
