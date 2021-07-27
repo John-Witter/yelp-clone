@@ -18,8 +18,8 @@ const RestaurantSearch = () => {
         e.preventDefault()
 
         await dispatch(getBusinessByName(searchTerm, location))
-        // const searchObj = {'searchTerm': searchTerm, "location": location}
-        // window.localStorage.setItem('searchObj', JSON.stringify(searchObj))
+        const searchObj = {'searchTerm': searchTerm, "location": location}
+        window.localStorage.setItem('searchObj', JSON.stringify(searchObj))
         history.push('/businesses')
     }
 
@@ -39,14 +39,18 @@ const RestaurantSearch = () => {
         <div className='search-form-container'>
             <form className="search-form" onSubmit={handleSubmit}>
 
-                <label htmlFor="search-input">Search For:</label>
+                <label htmlFor="search-input" className='search-label'>
+                    Search For:
+                </label>
                 <input type="text" id='search-input' className="search-input"
                     placeholder="sushi, theaters, etc..." required
                     onChange={e => setSearchTerm(e.target.value)}
                 />
 
 
-                <label htmlFor="location-input">Near:</label>
+                <label htmlFor="location-input" className='location-label'>
+                    Near:
+                </label>
                 <input type="text" id='location-input' className="location-input"
                     placeholder="enter location" required
                     onChange={e => setLocation(e.target.value)}
