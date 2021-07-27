@@ -3,7 +3,8 @@ import { useSelector } from "react-redux";
 import './HomePage.css'
 
 const HomePage = () => {
-    const { searchTerm, location } = JSON.parse(window.localStorage.getItem('searchObj'))
+    const searchTerm = 'restaurants'
+    const location = 'manhattan'
     const businessesObj = useSelector(state => Object.values(state.yelpAPI))
     const history = useHistory()
 

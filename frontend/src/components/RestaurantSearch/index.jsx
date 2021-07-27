@@ -8,8 +8,8 @@ import { getBusinessByName } from "../../store/yelp-api";
 const RestaurantSearch = () => {
 
     //used to format the user input to use with the Yelp Fusion API
-    const [searchTerm, setSearchTerm] = useState(null)
-    const [location, setLocation] = useState(null)
+    const [searchTerm, setSearchTerm] = useState('')
+    const [location, setLocation] = useState('')
     const dispatch = useDispatch()
     const history = useHistory()
 
@@ -17,19 +17,19 @@ const RestaurantSearch = () => {
         e.preventDefault()
 
         await dispatch(getBusinessByName(searchTerm, location))
-        const searchObj = {'searchTerm': searchTerm, "location": location}
-        window.localStorage.setItem('searchObj', JSON.stringify(searchObj))
+        // const searchObj = {'searchTerm': searchTerm, "location": location}
+        // window.localStorage.setItem('searchObj', JSON.stringify(searchObj))
         history.push('/businesses')
     }
 
     //add to store as thunk
     useEffect(() => {
-        const localSearchObj = JSON.parse(window.localStorage.getItem('searchObj'))
+        // const localSearchObj = JSON.parse(window.localStorage.getItem('searchObj'))
 
-        if (localSearchObj) {
-            let newSearchTerm = localSearchObj.searchTerm
-            let newSearchLocation = localSearchObj.searchLocation
-            dispatch(getBusinessByName(newSearchTerm, newSearchLocation))
+        if (searchTerm && location) {
+        //     let newSearchTerm = localSearchObj.searchTerm
+        //     let newSearchLocation = localSearchObj.searchLocation
+            dispatch(getBusinessByName(searchTerm, location))
         }
 
     }, [dispatch])
