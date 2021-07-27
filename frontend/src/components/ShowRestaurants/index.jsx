@@ -1,12 +1,21 @@
-import { useSelector } from "react-redux";
+import { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { getBusinessByName } from "../../store/yelp-api";
 import './ShowRestaurants.css'
 
 const ShowRestaurants = () => {
-    const { searchTerm, location } = JSON.parse(window.localStorage.getItem('searchObj'))
+    const dispatch = useDispatch()
     const businessesObj = useSelector(state => Object.values(state.yelpAPI))
+    const [searchTerm, setSearchTerm] = useState('')
+    const [location, setLocation] = useState('')
     const history = useHistory()
-    if (!businessesObj) return null
+
+    useEffect(() => {
+        if (searchTerm && location) {
+            dispatch(getBusinessByName(searchTerm, location))
+        }
+    }, [dispatch])
 
     const handleBusinessClick = (id) => {
         history.push(`/businesses/${id}`)

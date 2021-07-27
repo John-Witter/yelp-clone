@@ -1,25 +1,29 @@
+import { useEffect } from "react";
 import { useHistory } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { getBusinessByName } from "../../store/yelp-api";
 import './HomePage.css'
 
 const HomePage = () => {
+    const dispatch = useDispatch()
     const searchTerm = 'restaurants'
     const location = 'manhattan'
     const businessesObj = useSelector(state => Object.values(state.yelpAPI))
     const history = useHistory()
 
+    useEffect(() => {
+        dispatch(getBusinessByName(searchTerm, location))
+    }, [dispatch])
+    
     const handleBusinessClick = (id) => {
         history.push(`/businesses/${id}`)
     }
-
-
 
     return (
 
         <div className='homepage-body'>
             <div className="intro-text">
-                <h1>Welcome to my Yelp Clone!!!</h1>
-                <h2>This app is here to help you find businesses anywhere!</h2>
+                <h1>Find businesses anywhere!</h1>
             </div>
             {searchTerm && location && businessesObj &&
             <div>

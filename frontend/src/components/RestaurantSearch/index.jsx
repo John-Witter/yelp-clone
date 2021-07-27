@@ -40,7 +40,7 @@ const RestaurantSearch = () => {
 
                 <label htmlFor="search-input">Search For:</label>
                 <input type="text" id='search-input' className="search-input"
-                    placeholder="search businesses" required
+                    placeholder="sushi, theaters, etc..." required
                     onChange={e => setSearchTerm(e.target.value)}
                 />
 
