@@ -5,13 +5,14 @@
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     margin: 0;
-    width: 100%;
+    text-decoration: none;
+    /* width: 100%; */
     /* border: 1px solid #2d0c06;
     border-radius: 20px; */
 }
 
 .title {
-    color: #7d7645b59270;
+    /* color: #7d7645b59270; */
     font-weight: bold;
     font-size: 1rem;
     text-decoration: none;
