@@ -1,3 +1,11 @@
-.rating-container:hover {
+.rating-container {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+    margin: 1rem 0;
+    width: 322px; /* this is the width of the business image */
+}
+
+.rating:hover {
     cursor: pointer;
 }

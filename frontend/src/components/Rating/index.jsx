@@ -26,7 +26,7 @@ const Rating = ({ id }) => {
 
     return (
         <div className="rating-container">
-            <label htmlFor="rating" className='rating-label'>Rating</label>
+            <label htmlFor="rating" className='rating-label'>Your Rating</label>
             <input id='rating1' className="rating" type="radio" name="ratingValue" value='1' onClick={(e) => handleClick(e)}/>
             <input id='rating2' className="rating" type="radio" name="ratingValue" value='2' onClick={(e) => handleClick(e)} />
             <input id='rating3' className="rating" type="radio" name="ratingValue" value='3' onClick={(e) => handleClick(e)} />

@@ -21,9 +21,9 @@ const ShowSingleRestaurant = () => {
         getCurrentBusiness()
     }, [dispatch, id])
     return (
-        <div className='business-parent'>
+        <div className='single-business-parent'>
 
-            <div className='business-frame' key={business.id}>
+            <div className='single-business-frame' key={business.id}>
                 <img src={business.image_url} alt={business.name}
                     className='business-photo'
                 />
@@ -31,8 +31,8 @@ const ShowSingleRestaurant = () => {
                 <div className='business-price'>Price: {business.price}</div>
                 <div className='business-rating'>Rating: {business.rating}</div>
             </div>
-            {user && <Review id={id} />}
             {user && <Rating id={id} />}
+            {user && <Review id={id} />}
 
         </div>
 
