@@ -34,6 +34,7 @@
     border: 1px solid #B3C5C8;
     border-radius: .25rem;
     width: 20rem;
+    height: 18rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -44,6 +45,8 @@
 .business-name {
     font-size: 1.25rem;
     font-weight: 530;
+    text-align: center;
+    margin-bottom: .5rem;
 }
 
 .business-price {
@@ -61,7 +64,8 @@
 
 }
 
-.business-frame:hover {
+.business-frame:hover > .business-name{
     cursor: pointer;
+    color: #646F70;
     /* box-shadow: 3px 3px #107383, -1em 0 .4em #0a454f; */
 }
