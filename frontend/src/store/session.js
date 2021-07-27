@@ -1,6 +1,5 @@
 // frontend/src/store/session.js
 
-import { set } from 'js-cookie'
 import { csrfFetch } from './csrf'
 
 const SET_USER = 'session/setUser'

@@ -2,20 +2,26 @@
 /* 
     display: flex;
     justify-content: center; */
-    padding: 40px 0;
-    display: flex;
-    flex-direction: column;
+    padding: 1.5rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(25rem, 1fr));
+    grid-gap: 1.5rem 0;
     border: 2px solid #148295;
-    border-radius: 20px;
+    border-right: none;
+    border-left: none;
+    border-radius: 1rem;
     justify-items: center;
-    align-items: center;
-    margin: 1rem;
+    margin: 0;
     width: 100%vw;
     background-color: #e0f7fb;
 }
 
 .searchTermResult {
-    margin: 1rem;
+    /* margin: 1rem; */
+    display: flex;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 525;
 }
 
 .searchDisplayText {
@@ -25,8 +31,8 @@
 
 .business-frame {
     border: 2px solid #08363f;
-    border-radius: 20px;
-    width: 70%;
+    border-radius: .25rem;
+    width: 15rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,22 +41,23 @@
 }
 
 .business-name {
-    font-size: 32px;
-    font-weight: bold;
+    font-size: 1.25rem;
+    font-weight: 530;
 }
 
 .business-price {
-
+    font-size: .75rem;
 }
 
 .business-rating {
-
+    font-size: .75rem;
+    padding-bottom: 1rem;
 }
 
 .business-photo {
-    height: 25%;
-    width: 25%;
-    
+    height: 50%;
+    width: 50%;
+    padding-top: 1rem;
     margin-bottom: 15px;
     background-size: cover;
 
@@ -58,5 +65,5 @@
 
 .business-frame:hover {
     cursor: pointer;
-    box-shadow: 3px 3px #107383, -1em 0 .4em #0a454f;
+    /* box-shadow: 3px 3px #107383, -1em 0 .4em #0a454f; */
 }
