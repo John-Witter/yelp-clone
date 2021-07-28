@@ -3,4 +3,12 @@ body {
     background-color: #fbf2e0;
     margin: 0;
     font-family: sans-serif;
+    min-height: 100vh;
+    position: relative;
+}
+
+body::after {
+  content: '';
+  display: block;
+  height: 50px; /* Set same as footer's height */
 }

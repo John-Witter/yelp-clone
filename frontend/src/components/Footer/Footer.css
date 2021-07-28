@@ -1,5 +1,11 @@
 .footer{
     /* display: flex; */
+    /* clear: both; */
+    /* position: relative; */
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* height: 50px; */
 }
 
 .footer-ul {
@@ -7,9 +13,9 @@
     justify-content: space-around;
     align-items: center;
     background-color: #9cacaf;
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-    margin: 0;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+    margin: 1rem 0 0 0;
 }
 
 .footer-li {
