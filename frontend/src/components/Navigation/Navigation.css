@@ -11,6 +11,14 @@
     border-radius: 20px; */
 }
 
+.title {
+    margin-right: 5rem;
+}
+
+.demo {
+    margin: 0;
+}
+
 .login {
     margin-left: -1rem;
     padding-right: 1rem;
@@ -21,18 +29,19 @@
 }
 
 .link-parent {
-    width: 10rem;
+    width: 15rem;
     display: flex;
     justify-content: space-between;
 }
 
-.title, .logout, .login, .signup {
+.title, .logout, .login, .signup, .demo {
     color: rgb(85, 26, 139);
     /* font-weight: bold; */
     font-size: 1rem;
     text-decoration: none;
 }
 
-.title:hover, .logout:hover {
+.title:hover, .logout:hover, .demo:hover, .login:hover, .signup:hover {
     cursor: pointer;
+    text-decoration: underline;
 }
