@@ -1,0 +1,30 @@
+.footer{
+    /* display: flex; */
+}
+
+.footer-ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #9cacaf;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    margin: 0;
+}
+
+.footer-li {
+    list-style: none;
+}
+
+.link-text {
+    color: rgb(85, 26, 139);
+    letter-spacing: .03125rem;
+    font-weight: 500;
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.footer-li:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
