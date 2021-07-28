@@ -11,9 +11,28 @@
     border-radius: 20px; */
 }
 
-.title {
-    /* color: #7d7645b59270; */
-    font-weight: bold;
+.login {
+    margin-left: -1rem;
+    padding-right: 1rem;
+}
+
+.signup {
+    padding-right: 1rem;
+}
+
+.link-parent {
+    width: 10rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.title, .logout, .login, .signup {
+    color: rgb(85, 26, 139);
+    /* font-weight: bold; */
     font-size: 1rem;
     text-decoration: none;
+}
+
+.title:hover, .logout:hover {
+    cursor: pointer;
 }
