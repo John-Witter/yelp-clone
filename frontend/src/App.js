@@ -12,6 +12,7 @@ import ShowRestaurants from "./components/ShowRestaurants";
 import ShowSingleRestaurant from './components/ShowSingleRestaurant'
 import HomePage from './components/HomePage'
 import * as sessionActions from './store/session'
+import { Footer } from "./components/Footer/Footer";
 
 function App() {
   const dispatch = useDispatch()
@@ -43,8 +44,7 @@ function App() {
           </Route>
         </Switch>
       )}
-      
-
+      <Footer />    
     </>
   );
 }
