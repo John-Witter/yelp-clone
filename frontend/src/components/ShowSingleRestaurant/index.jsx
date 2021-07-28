@@ -23,14 +23,24 @@ const ShowSingleRestaurant = () => {
     return (
         <div className='single-business-parent'>
 
-            <div className='single-business-frame' key={business.id}>
-                <img src={business.image_url} alt={business.name}
-                    className='business-photo'
-                />
+            {business && <div className='single-business-frame' key={business.id}>
+
+                <div className="photos">
+                    <img src={business.photos[0]} alt={business.name}
+                        className='business-photo photo1'
+                    />
+                    <img src={business.photos[1]} alt={business.name}
+                        className='business-photo photo2'
+                    />
+                    <img src={business.photos[2]} alt={business.name}
+                        className='business-photo photo 3'
+                    />
+                </div>
+
                 <div className='business-name'>{business.name}</div>
                 <div className='business-price'>Price: {business.price}</div>
                 <div className='business-rating'>Yelp Rating: {business.rating}</div>
-            </div>
+            </div>}
             {user && <Rating id={id} />}
             {user && <Review id={id} />}
 
