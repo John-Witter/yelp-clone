@@ -2,7 +2,10 @@
     display: flex;
     flex-direction: row;
     align-content: space-between;
+    justify-content: center;
     margin: 1rem 0 .5rem 0;
+    font-size: 1rem;
+    font-weight: 500;
     /* width: 322px; this is the width of the business image */
 }
 
