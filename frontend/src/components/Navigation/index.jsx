@@ -16,12 +16,13 @@ const Navigation = ({ isLoaded }) => {
         <ul className='nav-body'>
             <NavLink exact to='/' className='title'>
                 <div className='title'>Yelp Jr.</div>
-            </NavLink>
-            {!sessionUser && (<NavLink className='link' to='/login'>Log In</NavLink>)}
-            {!sessionUser && <NavLink className='link' to='/signup'>Sign Up</NavLink>}
-            
-            <RestaurantSearch />
-            {isLoaded && (
+            </NavLink>            
+            <RestaurantSearch className='search' />
+            {!sessionUser && <div className='link-parent'>
+                <NavLink className='login' to='/login'>Log In</NavLink>
+                <NavLink className='signup' to='/signup'>Sign Up</NavLink>
+            </div>}
+            {sessionUser && (
                 <div className='logout' onClick={logout}>Log Out</div>
             )}
         </ul>
