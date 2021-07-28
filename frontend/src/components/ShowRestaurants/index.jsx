@@ -36,7 +36,7 @@ const ShowRestaurants = () => {
                         />
                         <div className='business-name'>{business.name}</div>
                         <div className='business-price'>Price: {business.price}</div>
-                        <div className='business-rating'>Rating: {business.rating}</div>
+                        <div className='business-rating'>Yelp Rating: {business.rating}</div>
                     </div>
                 ))}
             </div>

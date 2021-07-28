@@ -24,15 +24,45 @@ const ShowSingleRestaurant = () => {
         <div className='single-business-parent'>
 
             <div className='single-business-frame' key={business.id}>
-                <img src={business.image_url} alt={business.name}
-                    className='business-photo'
-                />
-                <div className='business-name'>{business.name}</div>
-                <div className='business-price'>Price: {business.price}</div>
-                <div className='business-rating'>Rating: {business.rating}</div>
+                <div className='single-business-name'>
+                    {business.name}
+                </div>
+                {business.location && <div className="single-business-info">
+                    <div className="single-business-phone">
+                        {business.display_phone}
+                    </div>
+                    <div className="single-business-address-street">
+                        {business.location.display_address[0]}
+                    </div>
+                    <div className="single-business-address-city">
+                        {business.location.display_address[1]}
+                    </div>
+                </div>}
+                <div className="yelp-info">
+                    <div className='single-business-price'>
+                        Price: {business.price}
+                    </div>
+                    <div className='single-business-rating'>
+                        Yelp Rating: {business.rating}
+                    </div>
+                </div>
+                {business.photos && <div className="photos">
+                    <img src={business.photos[0]} alt={business.name}
+                        className='single-business-photo photo1'
+                        />
+                    <img src={business.photos[1]} alt={business.name}
+                        className='single-business-photo photo2'
+                        />
+                    <img src={business.photos[2]} alt={business.name}
+                        className='single-business-photo photo 3'
+                        />
+                </div>}
+                <div className="rat-rev">
+                    {user && <Rating id={id} />}
+                    {user && <Review id={id} />}
+                </div>
+
             </div>
-            {user && <Rating id={id} />}
-            {user && <Review id={id} />}
 
         </div>
 

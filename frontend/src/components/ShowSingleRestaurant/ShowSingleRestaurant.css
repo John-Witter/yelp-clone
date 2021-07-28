@@ -1,40 +1,70 @@
 .single-business-parent {
-    padding: 1.5rem 0;
-    display: flex;
+    /* padding: 1.5rem 0; */
+    width: 100%;
+    /* display: flex;
     flex-direction: column;
-    align-items: center;
-    border-right: none;
-    border-left: none;
+    align-items: center; */
 }
 
 .single-business-frame {
-    border: 1px solid #B3C5C8;
-    border-radius: .25rem;
-    width: 20rem;
+    /* border: 1px solid #B3C5C8;
+    border-radius: .25rem; */
+    width: 100%;
+    display: grid;
+        grid-template-areas: 
+            "name name name name"
+            ". info info ."
+            ". y-i y-i ."
+            "pics pics pics pics"
+            ". ra-ra ra-ra .";
+}
+
+.rat-rev {
+    grid-area: ra-ra;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    background-color: #C9DEE1;
 }
 
-.business-name {
-    font-size: 1.25rem;
-    font-weight: 530;
+.yelp-info {
+    grid-area: y-i;
 }
 
-.business-price {
+.single-business-name {
+    grid-area: name;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 2rem auto;
+    text-align: center;
+    display: flex;
+}
+
+.single-business-info {
+    grid-area: info;
+    display: flex;
+    justify-content: center;
+}
+
+.single-business-price {
     font-size: .75rem;
 }
 
-.business-rating {
+.single-business-rating {
     font-size: .75rem;
 }
 
-.business-photo {
-    height: 50%;
-    width: 50%;
-    margin-bottom: 15px;
+.photos {
+    grid-area: pics;
+    display: flex;
+    justify-content: center;
+    /* flex-direction: column; */
+}
+
+.single-business-photo {
+    height: 15rem;
+    width: 20rem;
+    margin-bottom: 1rem;
+    padding: 1rem;
 
 }
 

@@ -1,7 +1,6 @@
 .review-form-container {
     display: flex;
-    flex-direction: row;
-    align-content: space-between;
+    justify-content: center;
     /* margin: 1rem 0;
     width: 322px; */
 }
