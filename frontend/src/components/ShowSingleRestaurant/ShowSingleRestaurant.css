@@ -28,6 +28,8 @@
 
 .yelp-info {
     grid-area: y-i;
+    display: flex;
+    justify-content: space-between;
 }
 
 .single-business-name {
