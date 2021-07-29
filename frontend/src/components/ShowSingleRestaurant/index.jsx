@@ -78,7 +78,7 @@ const ShowSingleRestaurant = () => {
                 <div className="rat-rev">
                     {user && <Rating id={id} />}
                     {user && <Review id={id} />}
-                    <div className="user-rat-rev">
+                    {user && <div className="user-rat-rev">
                         <div className="user-name">
                             {user.username}
                         </div>
@@ -92,7 +92,7 @@ const ShowSingleRestaurant = () => {
                                 {userReviews[0].reviewText}
                             </div>
                         )}
-                    </div>
+                    </div>}
                     {yelpReviews && yelpReviews.map(review => {
                         return (
                             <div className="yelp-rat-rev" key={review.id}>
