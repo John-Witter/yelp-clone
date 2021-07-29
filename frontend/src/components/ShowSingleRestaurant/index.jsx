@@ -13,6 +13,7 @@ const ShowSingleRestaurant = () => {
     const [yelpReviews, setYelpReviews] = useState([])
     const [userRatings, setUserRatings] = useState([])
     const [userReviews, setUserReviews] = useState([])
+    const [users, setUsers] = useState([])
     const user = useSelector(state => state.session.user)
 
     useEffect(() => {
@@ -23,12 +24,14 @@ const ShowSingleRestaurant = () => {
             setYelpReviews(currentBusiness.yelpReviews.reviews)
             setUserRatings(currentBusiness.userRatings)
             setUserReviews(currentBusiness.userReviews)
+            setUsers(currentBusiness.users)
             if (business.categories) {
                 console.log('!!!!!business.categories.title', business.categories[0].title)
             }
         }
         getCurrentBusiness()
     }, [dispatch, id])
+
     return (
         <div className='single-business-parent'>
 
@@ -78,21 +81,19 @@ const ShowSingleRestaurant = () => {
                 <div className="rat-rev">
                     {user && <Rating id={id} />}
                     {user && <Review id={id} />}
-                    <div className="user-rat-rev">
-                        <div className="user-name">
-                            {user.username}
-                        </div>
-                        {userRatings[0] && (
+                    {users && users.map((currentUser, idx) => (
+                        <div className="user-rat-rev" key={`user-rat-rev ${idx}`}>
+                            <div className="user-name">
+                                {currentUser.username}
+                            </div>
                             <div className="user-ratings">
-                                Rating: {userRatings[0].rating}
+                                Rating: {userRatings[idx].rating}
                             </div>
-                        )}
-                        {userReviews[0] && (
                             <div className="user-reviews">
-                                {userReviews[0].reviewText}
+                                {userReviews[idx].reviewText}
                             </div>
-                        )}
-                    </div>
+                        </div>
+                    ))}
                     {yelpReviews && yelpReviews.map(review => {
                         return (
                             <div className="yelp-rat-rev" key={review.id}>
