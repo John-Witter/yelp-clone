@@ -17,6 +17,8 @@
 const express = require('express')
 const asyncHandler = require('express-async-handler')
 const fetch = require('node-fetch')
+const { Review } = require('../../db/models')
+const { Rating } = require('../../db/models')
 const router = express.Router()
 
 const yelpKey = process.env.BEARER_TOKEN
@@ -44,14 +46,19 @@ router.get('/:id',
             }
         })
 
-        const reviewsRes = await fetch(`${baseUrl}${businessId}/reviews`, {
+        const userRatings = await Rating.findAll({where: {businessId:businessId}})
+
+    
+        const userReviews = await Review.findAll({where: {businessId:businessId}})
+
+        const yelpReviewsRes = await fetch(`${baseUrl}${businessId}/reviews`, {
             headers: {
                 Authorization: `Bearer ${yelpKey}`
             }
         })
-        const yelpReviews = await reviewsRes.json()
+        const yelpReviews = await yelpReviewsRes.json()
         const data = await business.json()
-        return res.json({data, yelpReviews})
+        return res.json({data, yelpReviews, userRatings, userReviews})
 
 
     }))
