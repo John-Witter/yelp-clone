@@ -43,15 +43,31 @@
 }
 
 .yelp-review-user {
-    font-size: larger;
+    font-size: 1.25rem;
 }
 
 .yelp-rating {
-    font-size: larger;
+    font-size: 1.25rem;
 }
 
 .yelp-review {
-    font-size: larger;
+    font-size: 1.25rem;
+}
+
+.user-rat-rev {
+    margin-bottom: 1rem;
+}
+
+.user-name {
+    font-size: 1.25rem;
+}
+
+.user-ratings {
+    font-size: 1.25rem;
+}
+
+.user-reviews {
+    font-size: 1.25rem;
 }
 
 .single-business-name {

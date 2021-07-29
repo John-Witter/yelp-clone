@@ -78,19 +78,21 @@ const ShowSingleRestaurant = () => {
                 <div className="rat-rev">
                     {user && <Rating id={id} />}
                     {user && <Review id={id} />}
-                    <div className="userName">
-                        {user.username}
+                    <div className="user-rat-rev">
+                        <div className="user-name">
+                            {user.username}
+                        </div>
+                        {userRatings[0] && (
+                            <div className="user-ratings">
+                                Rating: {userRatings[0].rating}
+                            </div>
+                        )}
+                        {userReviews[0] && (
+                            <div className="user-reviews">
+                                {userReviews[0].reviewText}
+                            </div>
+                        )}
                     </div>
-                    {userRatings[0] && (
-                        <div className="userRatings">
-                            Rating: {userRatings[0].rating}
-                        </div>
-                    )}
-                    {userReviews[0] && (
-                        <div className="userReviews">
-                            {userReviews[0].reviewText}
-                        </div>
-                    )}
                     {yelpReviews && yelpReviews.map(review => {
                         return (
                             <div className="yelp-rat-rev" key={review.id}>
