@@ -24,10 +24,33 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-bottom: 2rem;
 }
 
 .yelp-info {
     grid-area: y-i;
+    display: flex;
+    justify-content: space-around;
+}
+
+.yelp-rat-rev {
+    margin-bottom: 1rem;
+}
+
+.yelp-user-image {
+    width: 5rem;
+}
+
+.yelp-review-user {
+    font-size: larger;
+}
+
+.yelp-rating {
+    font-size: larger;
+}
+
+.yelp-review {
+    font-size: larger;
 }
 
 .single-business-name {
@@ -68,3 +91,10 @@
 
 }
 
+.single-business-phone {
+    margin-right: 1rem;
+}
+
+.single-business-address-street {
+    margin-right: 1rem;
+}
