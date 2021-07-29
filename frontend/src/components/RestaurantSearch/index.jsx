@@ -20,6 +20,8 @@ const RestaurantSearch = () => {
         await dispatch(getBusinessByName(searchTerm, location))
         const searchObj = {'searchTerm': searchTerm, "location": location}
         window.localStorage.setItem('searchObj', JSON.stringify(searchObj))
+        setSearchTerm('')
+        setLocation('')
         history.push('/businesses')
     }
 

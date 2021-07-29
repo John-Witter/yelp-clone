@@ -13,6 +13,7 @@
     display: grid;
         grid-template-areas: 
             "name name name name"
+            "alias alias alias alias"
             ". info info ."
             ". y-i y-i ."
             "pics pics pics pics"
@@ -57,9 +58,15 @@
     grid-area: name;
     font-size: 2rem;
     font-weight: bold;
-    margin: 2rem auto;
+    margin: 2rem auto 1rem auto;
     text-align: center;
     display: flex;
+}
+
+.single-business-alias {
+    grid-area: alias;
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .single-business-info {

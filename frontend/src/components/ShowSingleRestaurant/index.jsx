@@ -19,6 +19,9 @@ const ShowSingleRestaurant = () => {
             console.log('currentBusiness', currentBusiness)
             setBusiness(currentBusiness.data)
             setYelpReviews(currentBusiness.reviews.reviews)
+            if (business) {
+                console.log('!!!!!business.categories.title', business.categories[0].title)
+            }
         }
         getCurrentBusiness()
     }, [dispatch, id])
@@ -29,6 +32,9 @@ const ShowSingleRestaurant = () => {
                 <div className='single-business-name'>
                     {business.name}
                 </div>
+                {business.categories && <div className="single-business-alias">
+                    {business.categories[0].title}
+                </div>}
                 {business.location && <div className="single-business-info">
                     <div className="single-business-phone">
                         {business.display_phone}
@@ -64,7 +70,7 @@ const ShowSingleRestaurant = () => {
                     {user && <Review id={id} />}
                     {yelpReviews && yelpReviews.map(review => {
                         return (
-                            <div className="yelp-rat-rev">
+                            <div className="yelp-rat-rev" key={review.id}>
                                 <div className="yelp-review-user">
                                     {/* <img src={review.user.image_url} 
                                         alt= {review.user.name} 
