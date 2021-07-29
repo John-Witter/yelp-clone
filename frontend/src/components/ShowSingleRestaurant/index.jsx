@@ -19,7 +19,7 @@ const ShowSingleRestaurant = () => {
             console.log('currentBusiness', currentBusiness)
             setBusiness(currentBusiness.data)
             setYelpReviews(currentBusiness.reviews.reviews)
-            if (business) {
+            if (business.categories) {
                 console.log('!!!!!business.categories.title', business.categories[0].title)
             }
         }
@@ -32,9 +32,15 @@ const ShowSingleRestaurant = () => {
                 <div className='single-business-name'>
                     {business.name}
                 </div>
-                {business.categories && <div className="single-business-alias">
-                    {business.categories[0].title}
-                </div>}
+                <div className="single-business-alias-container">
+                    {business.categories &&
+                        business.categories.map(category => (
+                            <div className="single-business-alias">
+                                {category.title}
+                            </div>
+                        ))
+                    }
+                </div>
                 {business.location && <div className="single-business-info">
                     <div className="single-business-phone">
                         {business.display_phone}
@@ -57,13 +63,13 @@ const ShowSingleRestaurant = () => {
                 {business.photos && <div className="photos">
                     <img src={business.photos[0]} alt={business.name}
                         className='single-business-photo photo1'
-                        />
+                    />
                     <img src={business.photos[1]} alt={business.name}
                         className='single-business-photo photo2'
-                        />
+                    />
                     <img src={business.photos[2]} alt={business.name}
                         className='single-business-photo photo 3'
-                        />
+                    />
                 </div>}
                 <div className="rat-rev">
                     {user && <Rating id={id} />}
