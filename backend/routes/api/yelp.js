@@ -43,8 +43,15 @@ router.post('/:id',
                 Authorization: `Bearer ${yelpKey}`
             }
         })
+
+        const reviewsRes = await fetch(`${baseUrl}${businessId}/reviews`, {
+            headers: {
+                Authorization: `Bearer ${yelpKey}`
+            }
+        })
+        const reviews = await reviewsRes.json()
         const data = await result.json()
-        return res.json({data})
+        return res.json({data, reviews})
 
 
     }))

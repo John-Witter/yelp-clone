@@ -10,6 +10,7 @@ const ShowSingleRestaurant = () => {
     const { id } = useParams()
     const dispatch = useDispatch()
     const [business, setBusiness] = useState([])
+    const [yelpReviews, setYelpReviews] = useState([])
     const user = useSelector(state => state.session.user)
 
     useEffect(() => {
@@ -17,6 +18,7 @@ const ShowSingleRestaurant = () => {
             const currentBusiness = await dispatch(getBusinessById(id))
             console.log('currentBusiness', currentBusiness)
             setBusiness(currentBusiness.data)
+            setYelpReviews(currentBusiness.reviews.reviews)
         }
         getCurrentBusiness()
     }, [dispatch, id])
@@ -60,6 +62,24 @@ const ShowSingleRestaurant = () => {
                 <div className="rat-rev">
                     {user && <Rating id={id} />}
                     {user && <Review id={id} />}
+                    {yelpReviews && yelpReviews.map(review => {
+                        return (
+                            <div className="yelp-rat-rev">
+                                <div className="yelp-review-user">
+                                    {/* <img src={review.user.image_url} 
+                                        alt= {review.user.name} 
+                                        className='yelp-user-image' /> */}
+                                    {review.user.name}
+                                </div>
+                                <div className="yelp-rating">
+                                    Rating: {review.rating}
+                                </div>
+                                <div className="yelp-review">
+                                    {review.text}
+                                </div>
+                            </div>
+                        )
+                    })}
                 </div>
 
             </div>
