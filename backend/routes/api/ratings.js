@@ -14,6 +14,7 @@ router.post(
         console.log('userId', userId)
         console.log('businessId', businessId)
 
+        const prevRating = Rating.findOne({ where: { userId: userId, businessId: businessId } })
 
         const newRating = await Rating.create({
             rating,
@@ -21,7 +22,7 @@ router.post(
             businessId
         })
 
-        res.json({newRating})
+        res.json({ newRating })
     })
 )
 
