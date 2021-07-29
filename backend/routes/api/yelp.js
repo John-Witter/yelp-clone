@@ -46,10 +46,15 @@ router.get('/:id',
             }
         })
 
-        const userRatings = await Rating.findAll({where: {businessId:businessId}})
+        const userRatingsFromDb = await Rating.findAll({where: {businessId:businessId}})
 
+        if (userRatingsFromDb) userRatings = userRatingsFromDb
+        else userRatings = []
     
-        const userReviews = await Review.findAll({where: {businessId:businessId}})
+        const userReviewsFromDb = await Review.findAll({where: {businessId:businessId}})
+
+        if (userReviewsFromDb) userReviews = userReviewsFromDb
+        else userReviews = []
 
         const yelpReviewsRes = await fetch(`${baseUrl}${businessId}/reviews`, {
             headers: {
