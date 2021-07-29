@@ -82,9 +82,10 @@ const ShowSingleRestaurant = () => {
                     {user && <Rating id={id} />}
                     {user && <Review id={id} />}
                     {users && users.map((currentUser, idx) => (
-                        <div className="user-rat-rev" key={`user-rat-rev ${idx}`}>
+                        <div className="user-rat-rev" 
+                            key={`user-rat-rev ${idx}`}>
                             <div className="user-name">
-                                {currentUser.username}
+                                {currentUser.username === user.username ? `Your Review` :currentUser.username}
                             </div>
                             <div className="user-ratings">
                                 Rating: {userRatings[idx].rating}
