@@ -35,7 +35,7 @@ export const getBusinessById = (id) => async (dispatch) => {
     // the following link worked while testing a page by id
     // `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/${"eXIEbOrEar3x0ye0RYMLEw"}`
     const res = await csrfFetch(`/api/yelp/${id}`, {
-        method: "POST",
+        method: "GET",
         headers: {
             "Content-Type": "application/json"
         }

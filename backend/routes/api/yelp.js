@@ -35,7 +35,7 @@ router.post('/',
         return res.json({data})
     }))
 
-router.post('/:id',
+router.get('/:id',
     asyncHandler(async (req, res) => {
         const businessId = req.params.id
         const business = await fetch(`${baseUrl}${businessId}`, {
