@@ -13,13 +13,21 @@ router.post(
         console.log('reviewText', reviewText)
         console.log('userId', userId)
 
+        const prevReview = Review.findOne({
+            where: {
+                userId: userId, businessId: businessId
+            }
+        })
+
         const review = await Review.create({
             reviewText,
             userId,
             businessId
         })
 
-        res.json({review})
+        res.json({ review })
+
+
     })
 )
 

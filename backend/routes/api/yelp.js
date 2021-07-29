@@ -38,7 +38,7 @@ router.post('/',
 router.post('/:id',
     asyncHandler(async (req, res) => {
         const businessId = req.params.id
-        const result = await fetch(`${baseUrl}${businessId}`, {
+        const business = await fetch(`${baseUrl}${businessId}`, {
             headers: {
                 Authorization: `Bearer ${yelpKey}`
             }
@@ -49,9 +49,9 @@ router.post('/:id',
                 Authorization: `Bearer ${yelpKey}`
             }
         })
-        const reviews = await reviewsRes.json()
-        const data = await result.json()
-        return res.json({data, reviews})
+        const yelpReviews = await reviewsRes.json()
+        const data = await business.json()
+        return res.json({data, yelpReviews})
 
 
     }))

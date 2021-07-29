@@ -18,7 +18,7 @@ const ShowSingleRestaurant = () => {
             const currentBusiness = await dispatch(getBusinessById(id))
             console.log('currentBusiness', currentBusiness)
             setBusiness(currentBusiness.data)
-            setYelpReviews(currentBusiness.reviews.reviews)
+            setYelpReviews(currentBusiness.yelpReviews.reviews)
             if (business.categories) {
                 console.log('!!!!!business.categories.title', business.categories[0].title)
             }
@@ -35,7 +35,7 @@ const ShowSingleRestaurant = () => {
                 <div className="single-business-alias-container">
                     {business.categories &&
                         business.categories.map(category => (
-                            <div className="single-business-alias">
+                            <div className="single-business-alias" key={category.alias}>
                                 {category.title}
                             </div>
                         ))
