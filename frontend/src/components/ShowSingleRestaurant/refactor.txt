@@ -17,3 +17,9 @@ first: change db:
                             </div>
                         </div>
                     ))}
+
+
+Get Usernames or userIds for users who've left reviews.
+If currentUser.id is in users who've left reviews, don't show review input
+
+Same for rating
