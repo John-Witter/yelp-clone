@@ -13,7 +13,6 @@ const ShowSingleRestaurant = () => {
     const [yelpReviews, setYelpReviews] = useState([])
     const [userRatings, setUserRatings] = useState([])
     const [userReviews, setUserReviews] = useState([])
-    const [users, setUsers] = useState([])
     const user = useSelector(state => state.session.user)
 
     useEffect(() => {
@@ -24,7 +23,6 @@ const ShowSingleRestaurant = () => {
             setYelpReviews(currentBusiness.yelpReviews.reviews)
             setUserRatings(currentBusiness.userRatings)
             setUserReviews(currentBusiness.userReviews)
-            setUsers(currentBusiness.users)
             if (business.categories) {
                 console.log('!!!!!business.categories.title', business.categories[0].title)
             }
@@ -33,92 +31,90 @@ const ShowSingleRestaurant = () => {
     }, [dispatch, id])
 
     return (
-        null
-        // <div className='single-business-parent'>
+        <div className='single-business-parent'>
 
-        //     <div className='single-business-frame' key={business.id}>
-        //         <div className='single-business-name'>
-        //             {business.name}
-        //         </div>
-        //         <div className="single-business-alias-container">
-        //             {business.categories &&
-        //                 business.categories.map(category => (
-        //                     <div className="single-business-alias" key={category.alias}>
-        //                         {category.title}
-        //                     </div>
-        //                 ))
-        //             }
-        //         </div>
-        //         {business.location && <div className="single-business-info">
-        //             <div className="single-business-phone">
-        //                 {business.display_phone}
-        //             </div>
-        //             <div className="single-business-address-street">
-        //                 {business.location.display_address[0]}
-        //             </div>
-        //             <div className="single-business-address-city">
-        //                 {business.location.display_address[1]}
-        //             </div>
-        //         </div>}
-        //         <div className="yelp-info">
-        //             <div className='single-business-price'>
-        //                 Price: {business.price}
-        //             </div>
-        //             <div className='single-business-rating'>
-        //                 Yelp Rating: {business.rating}
-        //             </div>
-        //         </div>
-        //         {business.photos && <div className="photos">
-        //             <img src={business.photos[0]} alt={business.name}
-        //                 className='single-business-photo photo1'
-        //             />
-        //             <img src={business.photos[1]} alt={business.name}
-        //                 className='single-business-photo photo2'
-        //             />
-        //             <img src={business.photos[2]} alt={business.name}
-        //                 className='single-business-photo photo 3'
-        //             />
-        //         </div>}
-        //         <div className="rat-rev">
-        //             {user && <Rating id={id} />}
-        //             {user && <Review id={id} />}
-        //             {users && users.map((currentUser, idx) => (
-        //                 <div className="user-rat-rev" 
-        //                     key={`user-rat-rev ${idx}`}>
-        //                     <div className="user-name">
-        //                         {user && currentUser.username === user.username ? `Your Review` :currentUser.username}
-        //                     </div>
-        //                     <div className="user-ratings">
-        //                         Rating: {userRatings[idx] && userRatings[idx].rating}
-        //                     </div>
-        //                     <div className="user-reviews">
-        //                         {userReviews[idx] && userReviews[idx].reviewText}
-        //                     </div>
-        //                 </div>
-        //             ))}
-        //             {yelpReviews && yelpReviews.map(review => {
-        //                 return (
-        //                     <div className="yelp-rat-rev" key={review.id}>
-        //                         <div className="yelp-review-user">
-        //                             {/* <img src={review.user.image_url} 
-        //                                 alt= {review.user.name} 
-        //                                 className='yelp-user-image' /> */}
-        //                             {review.user.name}
-        //                         </div>
-        //                         <div className="yelp-rating">
-        //                             Rating: {review.rating}
-        //                         </div>
-        //                         <div className="yelp-review">
-        //                             {review.text}
-        //                         </div>
-        //                     </div>
-        //                 )
-        //             })}
-        //         </div>
+            <div className='single-business-frame' key={business.id}>
+                <div className='single-business-name'>
+                    {business.name}
+                </div>
+                <div className="single-business-alias-container">
+                    {business.categories &&
+                        business.categories.map(category => (
+                            <div className="single-business-alias" key={category.alias}>
+                                {category.title}
+                            </div>
+                        ))
+                    }
+                </div>
+                {business.location && <div className="single-business-info">
+                    <div className="single-business-phone">
+                        {business.display_phone}
+                    </div>
+                    <div className="single-business-address-street">
+                        {business.location.display_address[0]}
+                    </div>
+                    <div className="single-business-address-city">
+                        {business.location.display_address[1]}
+                    </div>
+                </div>}
+                <div className="yelp-info">
+                    <div className='single-business-price'>
+                        Price: {business.price}
+                    </div>
+                    <div className='single-business-rating'>
+                        Yelp Rating: {business.rating}
+                    </div>
+                </div>
+                {business.photos && <div className="photos">
+                    <img src={business.photos[0]} alt={business.name}
+                        className='single-business-photo photo1'
+                    />
+                    <img src={business.photos[1]} alt={business.name}
+                        className='single-business-photo photo2'
+                    />
+                    <img src={business.photos[2]} alt={business.name}
+                        className='single-business-photo photo 3'
+                    />
+                </div>}
+                <div className="rat-rev">
+                    {user && <Rating id={id} />}
+                    {user && <Review id={id} />}
+                    {userReviews && userReviews.map((review, idx) => (
+                        <div className="user-rat-rev" key={`user-rat-rev ${idx}`}>
+                            <div className="user-name">
+                                {user && review.User.username === user.username ? `Your Review` : review.User.username}
+                            </div>
+                            <div className="user-ratings">
+                                Rating: {userRatings[idx] && userRatings[idx].rating}
+                            </div>
+                            <div className="user-reviews">
+                                {review.reviewText && review.reviewText}
+                            </div>
+                        </div>
+                    ))}
+                    {yelpReviews && yelpReviews.map(review => {
+                        return (
+                            <div className="yelp-rat-rev" key={review.id}>
+                                <div className="yelp-review-user">
+                                    {/* <img src={review.user.image_url} 
+                                        alt= {review.user.name} 
+                                        className='yelp-user-image' /> */}
+                                    {review.user.name}
+                                </div>
+                                <div className="yelp-rating">
+                                    Rating: {review.rating}
+                                </div>
+                                <div className="yelp-review">
+                                    {review.text}
+                                </div>
+                            </div>
+                        )
+                    })}
+                </div>
 
-        //     </div>
+            </div>
 
-        // </div>
+        </div>
 
     )
 }
