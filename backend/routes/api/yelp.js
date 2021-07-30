@@ -57,14 +57,6 @@ router.get('/:id',
         if (userReviewsFromDb) userReviews = userReviewsFromDb
         else userReviews = []
 
-        let userIds = []
-        // for (let i = 0; i < userReviewsFromDb.length; i++) {
-        //     let review = userReviewsFromDb[i]
-        //     userIds.push(review.userId)
-        // }
-
-        const users = await User.findAll({where: {id: [...userIds]}})
-
         const yelpReviewsRes = await fetch(`${baseUrl}${businessId}/reviews`, {
             headers: {
                 Authorization: `Bearer ${yelpKey}`
