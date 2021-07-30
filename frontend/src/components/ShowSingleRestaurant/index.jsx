@@ -13,7 +13,6 @@ const ShowSingleRestaurant = () => {
     const [yelpReviews, setYelpReviews] = useState([])
     const [userRatings, setUserRatings] = useState([])
     const [userReviews, setUserReviews] = useState([])
-    const [users, setUsers] = useState([])
     const user = useSelector(state => state.session.user)
 
     useEffect(() => {
@@ -24,7 +23,6 @@ const ShowSingleRestaurant = () => {
             setYelpReviews(currentBusiness.yelpReviews.reviews)
             setUserRatings(currentBusiness.userRatings)
             setUserReviews(currentBusiness.userReviews)
-            setUsers(currentBusiness.users)
             if (business.categories) {
                 console.log('!!!!!business.categories.title', business.categories[0].title)
             }
@@ -81,17 +79,16 @@ const ShowSingleRestaurant = () => {
                 <div className="rat-rev">
                     {user && <Rating id={id} />}
                     {user && <Review id={id} />}
-                    {users && users.map((currentUser, idx) => (
-                        <div className="user-rat-rev" 
-                            key={`user-rat-rev ${idx}`}>
+                    {userReviews && userReviews.map((review, idx) => (
+                        <div className="user-rat-rev" key={`user-rat-rev ${idx}`}>
                             <div className="user-name">
-                                {user && currentUser.username === user.username ? `Your Review` :currentUser.username}
+                                {user && review.User.username === user.username ? `Your Review` : review.User.username}
                             </div>
                             <div className="user-ratings">
                                 Rating: {userRatings[idx] && userRatings[idx].rating}
                             </div>
                             <div className="user-reviews">
-                                {userReviews[idx] && userReviews[idx].reviewText}
+                                {review.reviewText && review.reviewText}
                             </div>
                         </div>
                     ))}
