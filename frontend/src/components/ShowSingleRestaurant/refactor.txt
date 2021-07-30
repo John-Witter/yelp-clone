@@ -1,0 +1,3 @@
+first: change db:
+                GET for Reviews and Ratings should be a joins table
+                aka Nested 

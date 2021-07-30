@@ -47,21 +47,21 @@ router.get('/:id',
             }
         })
 
-        const userRatingsFromDb = await Rating.findAll({where: {businessId:businessId}})
+        const userRatingsFromDb = await Rating.findAll({where: {businessId:businessId}, include: [User]})
 
         if (userRatingsFromDb) userRatings = userRatingsFromDb
         else userRatings = []
     
-        const userReviewsFromDb = await Review.findAll({where: {businessId:businessId}})
+        const userReviewsFromDb = await Review.findAll({where: {businessId:businessId}, include: [User]})
 
         if (userReviewsFromDb) userReviews = userReviewsFromDb
         else userReviews = []
 
         let userIds = []
-        for (let i = 0; i < userReviewsFromDb.length; i++) {
-            let review = userReviewsFromDb[i]
-            userIds.push(review.userId)
-        }
+        // for (let i = 0; i < userReviewsFromDb.length; i++) {
+        //     let review = userReviewsFromDb[i]
+        //     userIds.push(review.userId)
+        // }
 
         const users = await User.findAll({where: {id: [...userIds]}})
 
@@ -72,7 +72,7 @@ router.get('/:id',
         })
         const yelpReviews = await yelpReviewsRes.json()
         const data = await business.json()
-        return res.json({data, yelpReviews, userRatings, userReviews, users})
+        return res.json({data, yelpReviews, userRatings, userReviews})
 
 
     }))
