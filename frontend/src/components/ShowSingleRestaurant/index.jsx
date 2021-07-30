@@ -85,13 +85,13 @@ const ShowSingleRestaurant = () => {
                         <div className="user-rat-rev" 
                             key={`user-rat-rev ${idx}`}>
                             <div className="user-name">
-                                {currentUser.username === user.username ? `Your Review` :currentUser.username}
+                                {user && currentUser.username === user.username ? `Your Review` :currentUser.username}
                             </div>
                             <div className="user-ratings">
-                                Rating: {userRatings[idx].rating}
+                                Rating: {userRatings[idx] && userRatings[idx].rating}
                             </div>
                             <div className="user-reviews">
-                                {userReviews[idx].reviewText}
+                                {userReviews[idx] && userReviews[idx].reviewText}
                             </div>
                         </div>
                     ))}
