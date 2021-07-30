@@ -11,11 +11,12 @@ module.exports = {
       userId: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        unique: true
+        unique: 'actions_unique'
       },
       businessId: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: 'actions_unique'
       },
       rating: {
         type: Sequelize.INTEGER,
@@ -33,6 +34,12 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: Sequelize.fn('now')
+      }, 
+    }, {
+      uniqueKeys: {
+        action_unique: {
+          fields: ['userId', 'businessId']
+        }
       }
     });
   },
