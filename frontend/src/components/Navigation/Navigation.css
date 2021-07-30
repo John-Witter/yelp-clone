@@ -35,13 +35,13 @@
 }
 
 .title, .logout, .login, .signup, .demo {
-    color: rgb(85, 26, 139);
+    color: #36558F;
     /* font-weight: bold; */
-    font-size: 1rem;
+    font-size: 1.375rem;
     text-decoration: none;
 }
 
 .title:hover, .logout:hover, .demo:hover, .login:hover, .signup:hover {
     cursor: pointer;
-    text-decoration: underline;
+    color: #D6DDE8;
 }
