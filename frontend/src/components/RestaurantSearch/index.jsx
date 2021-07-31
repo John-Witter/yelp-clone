@@ -46,6 +46,7 @@ const RestaurantSearch = () => {
                 </label>
                 <input type="text" id='search-input' className="search-input"
                     placeholder="sushi, theaters, etc..." required
+                    value={searchTerm}
                     onChange={e => setSearchTerm(e.target.value)}
                 />
 
@@ -55,6 +56,7 @@ const RestaurantSearch = () => {
                 </label>
                 <input type="text" id='location-input' className="location-input"
                     placeholder="enter location" required
+                    value={location}
                     onChange={e => setLocation(e.target.value)}
                 />
 

@@ -11,15 +11,15 @@ const HomePage = () => {
     const [searchTerm, setSearchTerm] = useState('restaurants')
     const [location, setLocation] = useState('manhattan')
     const businessesObj = useSelector(state => Object.values(state.yelpAPI))
+    const sessionUser = useSelector(state => state.session.user)
     const history = useHistory()
 
     useEffect(() => {
         try {
+            if (!sessionUser) throw(new Error ())
             const localSearchObj = JSON.parse(localStorage.getItem('searchObj'))
             let newSearchTerm = localSearchObj.searchTerm
             let newSearchLocation = localSearchObj.location
-            // setSearchTerm(newSearchTerm)
-            // setLocation(newSearchLocation)
             dispatch(getBusinessByName(newSearchTerm, newSearchLocation))
         } catch (error) {
             console.log('!!!!!!error', error)
