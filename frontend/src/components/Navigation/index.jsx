@@ -1,11 +1,13 @@
 import { NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router";
 import RestaurantSearch from '../RestaurantSearch'
 import * as sessionActions from '../../store/session';
 import './Navigation.css'
 
 const Navigation = ({ isLoaded }) => {
     const dispatch = useDispatch()
+    const history = useHistory()
     const sessionUser = useSelector(state => state.session.user)
 
     const demoUser = () => {
@@ -21,6 +23,7 @@ const Navigation = ({ isLoaded }) => {
         const searchObj = { 'searchTerm': 'restaurants', "location": 'manhattan' }
         window.localStorage.setItem('searchObj', JSON.stringify(searchObj))
         dispatch(sessionActions.logout());
+        history.push('/')
     };
 
     return (

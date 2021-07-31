@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getBusinessByName } from "../../store/yelp-api";
+import { getUserLocation } from "../../store/userLocation";
 import './HomePage.css'
 
 const HomePage = () => {
@@ -10,22 +11,23 @@ const HomePage = () => {
     // const location = 'manhattan'
     const [searchTerm, setSearchTerm] = useState('restaurants')
     const [location, setLocation] = useState('manhattan')
+    const userLocation = useSelector(state => state.userLocation)
     const businessesObj = useSelector(state => Object.values(state.yelpAPI))
     const sessionUser = useSelector(state => state.session.user)
     const history = useHistory()
 
     useEffect(() => {
-        try {
-            if (!sessionUser) throw(new Error ())
-            const localSearchObj = JSON.parse(localStorage.getItem('searchObj'))
-            let newSearchTerm = localSearchObj.searchTerm
-            let newSearchLocation = localSearchObj.location
-            dispatch(getBusinessByName(newSearchTerm, newSearchLocation))
-        } catch (error) {
-            console.log('!!!!!!error', error)
+
+        dispatch(getUserLocation())
+        console.log('!!!!!!userLocation', userLocation)
+        if (userLocation) {
+            setLocation(userLocation.city)
             dispatch(getBusinessByName(searchTerm, location))
         }
+
+    
     }, [dispatch])
+
 
     const handleBusinessClick = (id) => {
         history.push(`/businesses/${id}`)
