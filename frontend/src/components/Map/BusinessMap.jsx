@@ -5,17 +5,17 @@
 
 import React from 'react';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
-import './ShowSingleRestaurant.css'
+import '../ShowSingleRestaurant/ShowSingleRestaurant.css'
 
 const containerStyle = {
     width: '400px',
     height: '400px'
-} 
+}
 
 const BusinessMap = ({ lat, lng }) => {
     const apiKey = process.env.REACT_APP_MAP_API
 
-    const center = {lat:lat, lng:lng}
+    const center = { lat: lat, lng: lng }
     return (
         <div className="business-map">
             <LoadScript googleMapsApiKey={apiKey}>
