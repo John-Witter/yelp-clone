@@ -81,8 +81,8 @@ const ShowSingleRestaurant = () => {
                 <div className="business-map">
                     {business.coordinates &&
                         <BusinessMap lat={business.coordinates.latitude}
-                    lng={business.coordinates.longitude}
-                />
+                            lng={business.coordinates.longitude}
+                        />
                     }
                 </div>
                 <div className="rat-rev">
@@ -108,7 +108,8 @@ const ShowSingleRestaurant = () => {
                                     {/* <img src={review.user.image_url} 
                                         alt= {review.user.name} 
                                         className='yelp-user-image' /> */}
-                                    {review.user.name} <span className='review-time-created'>{review.time_created.split(' ')[0]}</span>
+                                    <div className="yelp-user-photo-container">
+                                        <img className='yelp-user-photo' src={review.user.image_url} alt={review.user.name} /></div> {review.user.name} <span className='review-time-created'>{review.time_created.split(' ')[0]}</span>
                                 </div>
                                 <div className="yelp-rating">
                                     Rating: {review.rating}
