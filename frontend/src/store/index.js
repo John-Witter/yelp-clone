@@ -2,10 +2,12 @@ import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import sessionReducer from "./session";
 import yelpApiReducer from './yelp-api'
+import locationReducer from "./userLocation";
 
 const rootReducer = combineReducers({
     session: sessionReducer,
-    yelpAPI: yelpApiReducer
+    yelpAPI: yelpApiReducer,
+    userLocation: locationReducer
 })
 
 let enhancer
