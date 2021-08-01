@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { getBusinessById } from '../../store/yelp-api'
 import Rating from "../Rating";
 import Review from "../Review";
-
+import BusinessMap from './BusinessMap'
 import './ShowSingleRestaurant.css'
 
 const ShowSingleRestaurant = () => {
@@ -77,6 +77,13 @@ const ShowSingleRestaurant = () => {
                         className='single-business-photo photo 3'
                     />
                 </div>}
+                <div className="business-map">
+                    {business.coordinates &&
+                        <BusinessMap lat={business.coordinates.latitude}
+                    lng={business.coordinates.longitude}
+                />
+                    }
+                </div>
                 <div className="rat-rev">
                     {user && <Rating id={id} />}
                     {user && <Review id={id} />}
