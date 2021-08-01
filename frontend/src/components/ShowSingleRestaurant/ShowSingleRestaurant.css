@@ -18,11 +18,11 @@
             ". info info ."
             ". y-i y-i ."
             "pics pics pics pics"
-            ". ra-ra map .";
+            "ra-map ra-map ra-map ra-map";
 }
 
 .rat-rev {
-    grid-area: ra-ra;
+    /* grid-area: ra-ra; */
     width: 400px;
     /* height: 400px; */
     height: calc(100% - 5%);
@@ -30,11 +30,12 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 2rem;
+    margin: 0 1rem 1rem 1rem;
     background-color: #C9DEE1;
     /* padding-top: 2.5rem; */
-    margin-right: -2.5rem;
-    margin-left: 10rem;
+
+    /* margin-right: -2.5rem;
+    margin-left: 10rem; */
 }
 
 .rat-rev:first-of-type {
@@ -178,7 +179,15 @@
 }
 
 .business-map {
-    grid-area: map;
-    margin: 0 auto;
-    margin-left: -2.5rem;
+    /* grid-area: map; */
+    /* margin: 0 auto; */
+    /* margin-left: -2.5rem; */
+    margin: 0 1rem 1rem 1rem;
+}
+
+.ra-ra-map {
+    grid-area: ra-map;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5rem;
 }

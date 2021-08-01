@@ -78,49 +78,54 @@ const ShowSingleRestaurant = () => {
                         className='single-business-photo photo 3'
                     />
                 </div>}
-                <div className="business-map">
-                    {business.coordinates &&
-                        <BusinessMap lat={business.coordinates.latitude}
-                            lng={business.coordinates.longitude}
-                        />
-                    }
-                </div>
-                <div className="rat-rev">
-                    {user && <Rating id={id} />}
-                    {user && <Review id={id} />}
-                    {userReviews && userReviews.map((review, idx) => (
-                        <div className="user-rat-rev" key={`user-rat-rev ${idx}`}>
-                            <div className="user-name">
-                                {user && review.User.username === user.username ? `Your Review` : review.User.username} <span className='review-time-created'>{review.createdAt.split('T')[0]}</span>
+
+                <div className="ra-ra-map">
+                    <div className="rat-rev">
+                        {user && <Rating id={id} />}
+                        {user && <Review id={id} />}
+                        {userReviews && userReviews.map((review, idx) => (
+                            <div className="user-rat-rev" key={`user-rat-rev ${idx}`}>
+                                <div className="user-name">
+                                    {user && review.User.username === user.username ? `Your Review` : review.User.username} <span className='review-time-created'>{review.createdAt.split('T')[0]}</span>
+                                </div>
+                                <div className="user-ratings">
+                                    Rating: {userRatings[idx] && userRatings[idx].rating}
+                                </div>
+                                <div className="user-reviews">
+                                    {review.reviewText && review.reviewText}
+                                </div>
                             </div>
-                            <div className="user-ratings">
-                                Rating: {userRatings[idx] && userRatings[idx].rating}
-                            </div>
-                            <div className="user-reviews">
-                                {review.reviewText && review.reviewText}
-                            </div>
-                        </div>
-                    ))}
-                    {yelpReviews && yelpReviews.map(review => {
-                        return (
-                            <div className="yelp-rat-rev" key={review.id}>
-                                <div className="yelp-review-user">
-                                    {/* <img src={review.user.image_url} 
+                        ))}
+                        {yelpReviews && yelpReviews.map(review => {
+                            return (
+                                <div className="yelp-rat-rev" key={review.id}>
+                                    <div className="yelp-review-user">
+                                        {/* <img src={review.user.image_url} 
                                         alt= {review.user.name} 
                                         className='yelp-user-image' /> */}
-                                    <div className="yelp-user-photo-container">
-                                        <img className='yelp-user-photo' src={review.user.image_url} alt={review.user.name} /></div> {review.user.name} <span className='review-time-created'>{review.time_created.split(' ')[0]}</span>
+                                        <div className="yelp-user-photo-container">
+                                            <img className='yelp-user-photo' src={review.user.image_url} alt={review.user.name} /></div> {review.user.name} <span className='review-time-created'>{review.time_created.split(' ')[0]}</span>
+                                    </div>
+                                    <div className="yelp-rating">
+                                        Rating: {review.rating}
+                                    </div>
+                                    <div className="yelp-review">
+                                        {review.text}
+                                    </div>
                                 </div>
-                                <div className="yelp-rating">
-                                    Rating: {review.rating}
-                                </div>
-                                <div className="yelp-review">
-                                    {review.text}
-                                </div>
-                            </div>
-                        )
-                    })}
-                </div>
+                            )
+                        })}
+                    </div>
+
+                    <div className="business-map">
+                        {business.coordinates &&
+                            <BusinessMap lat={business.coordinates.latitude}
+                                lng={business.coordinates.longitude}
+                            />
+                        }
+                    </div>
+
+                </div> {/* end ra-ra-map */}
 
             </div>
 
