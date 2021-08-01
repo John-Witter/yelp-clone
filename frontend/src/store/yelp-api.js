@@ -26,7 +26,7 @@ export const getBusinessByName = (term, location) => async (dispatch) => {
     })
     
     const result = await res.json()
-    // console.log('data', result.data.businesses)
+    console.log('data', result.data.businesses)
     dispatch(getBusinesses(result.data.businesses))
     return result.data.businesses
 }
