@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { getBusinessById } from '../../store/yelp-api'
 import Rating from "../Rating";
 import Review from "../Review";
+
 import './ShowSingleRestaurant.css'
 
 const ShowSingleRestaurant = () => {

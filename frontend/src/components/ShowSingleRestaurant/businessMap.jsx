@@ -2,7 +2,7 @@
 // code template from:
 // https://www.npmjs.com/package/@react-google-maps/api
 
-import React { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { GoogleMap, useJsApiLoader } from '@react-google-maps/api';
 
 const containerStyle = {
@@ -10,7 +10,7 @@ const containerStyle = {
     height: '400px'
 }
 
-const businessMap = ({ lat, lng }) => {
+const BusinessMap = ({ lat, lng }) => {
 
     const { isLoaded } = useJsApiLoader({
         id: 'google-map-script',
@@ -36,4 +36,4 @@ const businessMap = ({ lat, lng }) => {
     ) : <></>
 }
 
-export default React.memo(businessMap)
+export default React.memo(BusinessMap)
