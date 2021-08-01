@@ -24,6 +24,5 @@
   },
   "homepage": "https://github.com/John-Witter/authenticate-me#readme",
   "dependencies": {
-    "@react-google-maps/api": "^2.2.0"
   }
 }
