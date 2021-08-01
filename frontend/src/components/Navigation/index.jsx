@@ -23,7 +23,6 @@ const Navigation = ({ isLoaded }) => {
         // const searchObj = { 'searchTerm': 'restaurants', "location": 'manhattan' }
         // window.localStorage.setItem('searchObj', JSON.stringify(searchObj))
         dispatch(sessionActions.logout());
-        history.push('/')
     };
 
     return (
