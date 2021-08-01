@@ -3,7 +3,7 @@
 // https://react-google-maps-api-docs.netlify.app/
 // https://www.npmjs.com/package/@react-google-maps/api
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { GoogleMap, LoadScript } from '@react-google-maps/api';
 
 const containerStyle = {
@@ -12,7 +12,6 @@ const containerStyle = {
 } 
 
 const BusinessMap = ({ lat, lng }) => {
-    // const [apiKey, setApiKey] = useState(process.env.REACT_APP_MAP_API)
     const apiKey = process.env.REACT_APP_MAP_API
 
     const center = {lat:lat, lng:lng}
