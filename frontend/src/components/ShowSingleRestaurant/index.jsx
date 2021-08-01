@@ -91,7 +91,7 @@ const ShowSingleRestaurant = () => {
                     {userReviews && userReviews.map((review, idx) => (
                         <div className="user-rat-rev" key={`user-rat-rev ${idx}`}>
                             <div className="user-name">
-                                {user && review.User.username === user.username ? `Your Review` : review.User.username}
+                                {user && review.User.username === user.username ? `Your Review` : review.User.username} <span className='review-time-created'>{review.createdAt.split('T')[0]}</span>
                             </div>
                             <div className="user-ratings">
                                 Rating: {userRatings[idx] && userRatings[idx].rating}
@@ -108,7 +108,7 @@ const ShowSingleRestaurant = () => {
                                     {/* <img src={review.user.image_url} 
                                         alt= {review.user.name} 
                                         className='yelp-user-image' /> */}
-                                    {review.user.name}
+                                    {review.user.name} <span className='review-time-created'>{review.time_created.split(' ')[0]}</span>
                                 </div>
                                 <div className="yelp-rating">
                                     Rating: {review.rating}

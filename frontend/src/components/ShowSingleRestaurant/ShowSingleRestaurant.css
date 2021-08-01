@@ -10,6 +10,7 @@
     /* border: 1px solid #B3C5C8;
     border-radius: .25rem; */
     width: 100%;
+    height: 100%;
     display: grid;
         grid-template-areas: 
             "name name name name"
@@ -17,16 +18,25 @@
             ". info info ."
             ". y-i y-i ."
             "pics pics pics pics"
-            "map map map map"
-            ". ra-ra ra-ra .";
+            ". map ra-ra .";
 }
 
 .rat-rev {
     grid-area: ra-ra;
+    width: 400px;
+    /* height: 400px; */
+    height: calc(100% - 5%);
+    overflow-y: scroll;
     display: flex;
     flex-direction: column;
     justify-content: center;
     margin-bottom: 2rem;
+    background-color: #C9DEE1;
+    /* padding-top: 2.5rem; */
+}
+
+.rat-rev:first-of-type {
+        padding-top: 2rem;
 }
 
 .yelp-info {
@@ -35,8 +45,12 @@
     justify-content: space-around;
 }
 
+.yelp-rat-rev:first-of-type {
+    padding-top: 2rem;
+}
+
 .yelp-rat-rev {
-    margin-bottom: 1rem;
+    padding: 1rem;
 }
 
 .yelp-user-image {
@@ -44,31 +58,42 @@
 }
 
 .yelp-review-user {
-    font-size: 1.25rem;
+    font-size: 1rem;
+    color: #505050;
+}
+
+.review-time-created {
+    color: black;
 }
 
 .yelp-rating {
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
 
 .yelp-review {
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
 
 .user-rat-rev {
     margin-bottom: 1rem;
+    padding: 1rem;
 }
 
 .user-name {
-    font-size: 1.25rem;
+    font-size: 1rem;
+    color: #505050;
 }
 
 .user-ratings {
-    font-size: 1.25rem;
+    font-size: 1rem;
 }
 
 .user-reviews {
-    font-size: 1.25rem;
+    font-size: 1rem;
+}
+
+.user-reviews:last-of-type {
+    margin-bottom: -1rem;
 }
 
 .single-business-name {
@@ -133,5 +158,5 @@
 
 .business-map {
     grid-area: map;
-    margin: 0 auto;
+    margin: 0 auto 1rem;
 }
