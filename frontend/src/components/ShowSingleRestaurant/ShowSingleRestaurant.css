@@ -68,6 +68,8 @@
 
 .review-time-created {
     color: black;
+    margin-left: .5rem;
+    font-size: .9rem;
 }
 
 .yelp-rating {
