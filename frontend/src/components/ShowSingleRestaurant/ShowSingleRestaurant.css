@@ -17,6 +17,7 @@
             ". info info ."
             ". y-i y-i ."
             "pics pics pics pics"
+            "map map map map"
             ". ra-ra ra-ra .";
 }
 
@@ -128,4 +129,9 @@
 
 .single-business-address-street {
     margin-right: 1rem;
+}
+
+.business-map {
+    grid-area: map;
+    margin: 0 auto;
 }
