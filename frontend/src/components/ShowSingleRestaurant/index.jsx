@@ -101,8 +101,8 @@ const ShowSingleRestaurant = () => {
                                             <img className='yelp-user-photo' src={review.user.image_url} alt={review.user.name} /></div> {review.user.name} <span className='review-time-created'>{review.time_created.split(' ')[0]}</span>
                                     </div>
                                     <div className="yelp-rating">
-                                                                                
-                                        <Stars rating={review.rating} size='small'/>
+
+                                        <Stars rating={review.rating} size='small' />
                                     </div>
                                     <div className="yelp-review">
                                         {review.text}
@@ -120,9 +120,98 @@ const ShowSingleRestaurant = () => {
                         }
                     </div>
 
-                    <div className="business-hours">
-                        
-                    </div>
+                    {business.hours && <div className="business-hours">
+                        <div className="day">
+                         className='business-hours-day-container' <span className="business-hours-day"><span>
+                                
+                                Mon
+                            </span></span>
+                            <span className="business-hours-open">
+                                {business.hours[0].open[0].start}
+                            </span>
+                            <span className="business-hours-close">
+                                {business.hours[0].open[0].end}
+                            </span>
+                        </div>
+                        <div className="day">
+                            <span className='business-hours-day-container'>
+                                <span className="business-hours-day">
+                                Tue 
+                            </span>
+                            </span>
+                            <span className="business-hours-open">
+                                {business.hours[0].open[0].start}
+                            </span>
+                            <span className="business-hours-close">
+                                {business.hours[0].open[0].end}
+                            </span>
+                        </div>
+                        <div className="day">
+                            <span className='business-hours-day-container'>
+                                <span className="business-hours-day">
+                                Wed
+                            </span>
+                            </span>
+                            <span className="business-hours-open">
+                                {business.hours[0].open[0].start}
+                            </span>
+                            <span className="business-hours-close">
+                                {business.hours[0].open[0].end}
+                            </span>
+                        </div>
+                        <div className="day">
+                            <span className='business-hours-day-container'>
+                                <span className="business-hours-day">
+                                Thu
+                            </span>
+                            </span>
+                            <span className="business-hours-open">
+                                {business.hours[0].open[0].start}
+                            </span>
+                            <span className="business-hours-close">
+                                {business.hours[0].open[0].end}
+                            </span>
+                        </div>
+                        <div className="day">
+                            <span className='business-hours-day-container'>
+                                <span className="business-hours-day">
+                                Fri 
+                            </span>
+                            </span>
+                            <span className="business-hours-open">
+                                {business.hours[0].open[0].start}
+                            </span>
+                            <span className="business-hours-close">
+                                {business.hours[0].open[0].end}
+                            </span>
+                        </div>
+                        <div className="day">
+                            <span className='business-hours-day-container'>
+                                <span className="business-hours-day">
+                                Sat
+                            </span>
+                            </span>
+                            <span className="business-hours-open">
+                                {business.hours[0].open[0].start}
+                            </span>
+                            <span className="business-hours-close">
+                                {business.hours[0].open[0].end}
+                            </span>
+                        </div>
+                        <div className="day">
+                            <span className='business-hours-day-container'>
+                                <span className="business-hours-day">
+                                Sun
+                            </span>
+                            </span>
+                            <span className="business-hours-open">
+                                {business.hours[0].open[0].start}
+                            </span>
+                            <span className="business-hours-close">
+                                {business.hours[0].open[0].end}
+                            </span>
+                        </div>
+                    </div>}
 
                 </div> {/* end ra-ra-map */}
 
