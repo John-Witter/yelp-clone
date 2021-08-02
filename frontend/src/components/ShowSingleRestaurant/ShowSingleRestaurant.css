@@ -129,16 +129,18 @@
 
 .single-business-alias-container {
     grid-area: alias;
-
+    display: flex;
+    justify-content: center;
 }
 
 .single-business-alias {
-    text-align: center;
+    /* text-align: center; */
+    padding-left: 1rem;
     margin-bottom: .25rem;
 }
 
 .single-business-alias:last-of-type {    
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .single-business-info {
