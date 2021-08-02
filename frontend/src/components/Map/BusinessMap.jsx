@@ -8,8 +8,8 @@ import { GoogleMap, LoadScript } from '@react-google-maps/api';
 import '../ShowSingleRestaurant/ShowSingleRestaurant.css'
 
 const containerStyle = {
-    width: '400px',
-    height: '400px'
+    width: '20rem',
+    height: '25rem'
 }
 
 const BusinessMap = ({ lat, lng }) => {

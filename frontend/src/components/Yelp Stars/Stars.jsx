@@ -27,7 +27,6 @@ const starRatings = {
 
 export default function Stars({ rating, size }) {
     const starSource = starRatings[rating]
-    console.log('starSource', starSource)
     return (
         <img src={starSource} alt={`star-${rating}`} className={`rating-star-${size}`} />
         // <div className="stars">

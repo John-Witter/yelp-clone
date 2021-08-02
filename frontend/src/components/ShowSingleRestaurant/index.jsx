@@ -39,7 +39,7 @@ const ShowSingleRestaurant = () => {
 
             <div className='single-business-frame' key={business.id}>
                 <div className='single-business-name'>
-                    {business.name} <Stars rating={business.rating} size='large' />
+                    {business.name} <Stars rating={business.rating} size='large' /> <span className="review-number">{business.review_count} Yelp reviews</span>
                 </div>
                 <div className="single-business-alias-container">
                     {business.price}{business.categories &&
@@ -61,14 +61,7 @@ const ShowSingleRestaurant = () => {
                         {business.location.display_address[1]}
                     </div>
                 </div>}
-                {/* <div className="yelp-info">
-                    <div className='single-business-price'>
-                        Price: {business.price}
-                    </div>
-                    <div className='single-business-rating'>
-                        Yelp Rating: {business.rating}
-                    </div>
-                </div> */}
+
                 {business.photos && <div className="photos">
                     <img src={business.photos[0]} alt={business.name}
                         className='single-business-photo photo1'
@@ -103,9 +96,7 @@ const ShowSingleRestaurant = () => {
                             return (
                                 <div className="yelp-rat-rev" key={review.id}>
                                     <div className="yelp-review-user">
-                                        {/* <img src={review.user.image_url} 
-                                        alt= {review.user.name} 
-                                        className='yelp-user-image' /> */}
+
                                         <div className="yelp-user-photo-container">
                                             <img className='yelp-user-photo' src={review.user.image_url} alt={review.user.name} /></div> {review.user.name} <span className='review-time-created'>{review.time_created.split(' ')[0]}</span>
                                     </div>
@@ -127,6 +118,10 @@ const ShowSingleRestaurant = () => {
                                 lng={business.coordinates.longitude}
                             />
                         }
+                    </div>
+
+                    <div className="business-hours">
+                        
                     </div>
 
                 </div> {/* end ra-ra-map */}
