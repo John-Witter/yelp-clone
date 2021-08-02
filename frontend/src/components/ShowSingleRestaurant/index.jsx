@@ -39,7 +39,7 @@ const ShowSingleRestaurant = () => {
 
             <div className='single-business-frame' key={business.id}>
                 <div className='single-business-name'>
-                    {business.name} <Stars rating={business.rating} />
+                    {business.name} <Stars rating={business.rating} size='large' />
                 </div>
                 <div className="single-business-alias-container">
                     {business.price}{business.categories &&

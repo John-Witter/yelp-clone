@@ -25,11 +25,11 @@ const starRatings = {
     5 : star_5
 }
 
-export default function Stars({ rating }) {
+export default function Stars({ rating, size }) {
     const starSource = starRatings[rating]
     console.log('starSource', starSource)
     return (
-        <img src={starSource} alt={`star-${rating}`} className='rating-star' />
+        <img src={starSource} alt={`star-${rating}`} className={`rating-star-${size}`} />
         // <div className="stars">
         //     <div>
         //         <img src={star_0} alt="" />
