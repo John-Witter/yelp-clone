@@ -23,12 +23,12 @@
 
 .rat-rev {
     /* grid-area: ra-ra; */
-    width: 400px;
-    height: 400px;
+    width: 20rem;
+    height: 25rem;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
-    margin: 0 1rem 1rem 1rem;
+    margin: 0 2rem 1rem 1rem;
     background-color: #C9DEE1;
     /* padding-top: 2.5rem; */
 
@@ -74,6 +74,8 @@
 .yelp-rating {
     font-size: 1rem;
     margin-bottom: .25rem;
+    margin-left: 4rem;
+    margin-top: -.75rem;
 }
 
 .yelp-review {
@@ -85,7 +87,7 @@
     height: 3rem;
     display: inline;
     margin-right: 1rem;
-    margin-bottom: .5rem;
+    /* margin-bottom: .5rem; */
 }
 
 .yelp-user-photo {
@@ -113,6 +115,9 @@
 
 .user-ratings {
     font-size: 1rem;
+    margin-bottom: .25rem;
+    margin-left: 4rem;
+    margin-top: -.75rem;
 }
 
 .user-reviews {
@@ -130,18 +135,28 @@
     margin: 2rem auto .25rem auto;
     text-align: center;
     display: flex;
+    align-items: center;
+    color: #191816;
+}
+
+.review-number {
+    font-size: 1rem;
+    margin-left: 1rem;
+    color: #666666;
 }
 
 .single-business-alias-container {
     grid-area: alias;
     display: flex;
     justify-content: center;
+    color: #666666;
 }
 
 .single-business-alias {
     /* text-align: center; */
     padding-left: 1rem;
     margin-bottom: .25rem;
+    color: #666666;
 }
 
 .single-business-alias:last-of-type {    
@@ -189,7 +204,16 @@
     /* grid-area: map; */
     /* margin: 0 auto; */
     /* margin-left: -2.5rem; */
-    margin: 0 1rem 1rem 1rem;
+    /* margin: 0 1rem 1rem 1rem; */
+    width: 20rem;
+    height: 25rem;
+}
+
+.business-hours {
+    width: 20rem;
+    height: 25rem;
+    background-color: #C9DEE1;
+    margin: 0 1rem 1rem 2rem;
 }
 
 .ra-ra-map {

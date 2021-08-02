@@ -4,8 +4,8 @@ import { useParams } from "react-router-dom";
 import { getBusinessById } from '../../store/yelp-api'
 import Rating from "../Rating";
 import Review from "../Review";
-// import BusinessMap from './BusinessMap'
 import BusinessMap from "../Map/BusinessMap";
+import Stars from "../Yelp Stars/Stars";
 import './ShowSingleRestaurant.css'
 
 const ShowSingleRestaurant = () => {
@@ -32,12 +32,14 @@ const ShowSingleRestaurant = () => {
         getCurrentBusiness()
     }, [dispatch, id])
 
+    // return (<Stars rating={4.5}/>)
+
     return (
         <div className='single-business-parent'>
 
             <div className='single-business-frame' key={business.id}>
                 <div className='single-business-name'>
-                    {business.name}
+                    {business.name} <Stars rating={business.rating} size='large' /> <span className="review-number">{business.review_count} Yelp reviews</span>
                 </div>
                 <div className="single-business-alias-container">
                     {business.price}{business.categories &&
@@ -59,14 +61,7 @@ const ShowSingleRestaurant = () => {
                         {business.location.display_address[1]}
                     </div>
                 </div>}
-                {/* <div className="yelp-info">
-                    <div className='single-business-price'>
-                        Price: {business.price}
-                    </div>
-                    <div className='single-business-rating'>
-                        Yelp Rating: {business.rating}
-                    </div>
-                </div> */}
+
                 {business.photos && <div className="photos">
                     <img src={business.photos[0]} alt={business.name}
                         className='single-business-photo photo1'
@@ -89,7 +84,8 @@ const ShowSingleRestaurant = () => {
                                     <img className='yelp-user-photo user-photo' src='https://images.unsplash.com/photo-1547354142-526457358bb7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHNpbGhvdWV0dGV8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60' alt='profile pic' />{user && review.User.username === user.username ? `Your Review` : review.User.username} <span className='review-time-created'>{review.createdAt.split('T')[0]}</span>
                                 </div>
                                 <div className="user-ratings">
-                                    Rating: {userRatings[idx] && userRatings[idx].rating}
+                                    {/* Rating: {userRatings[idx] && userRatings[idx].rating} */}
+                                    <Stars rating={userRatings[idx].rating} size='small' />
                                 </div>
                                 <div className="user-reviews">
                                     {review.reviewText && review.reviewText}
@@ -100,14 +96,13 @@ const ShowSingleRestaurant = () => {
                             return (
                                 <div className="yelp-rat-rev" key={review.id}>
                                     <div className="yelp-review-user">
-                                        {/* <img src={review.user.image_url} 
-                                        alt= {review.user.name} 
-                                        className='yelp-user-image' /> */}
+
                                         <div className="yelp-user-photo-container">
                                             <img className='yelp-user-photo' src={review.user.image_url} alt={review.user.name} /></div> {review.user.name} <span className='review-time-created'>{review.time_created.split(' ')[0]}</span>
                                     </div>
                                     <div className="yelp-rating">
-                                        Rating: {review.rating}
+                                                                                
+                                        <Stars rating={review.rating} size='small'/>
                                     </div>
                                     <div className="yelp-review">
                                         {review.text}
@@ -123,6 +118,10 @@ const ShowSingleRestaurant = () => {
                                 lng={business.coordinates.longitude}
                             />
                         }
+                    </div>
+
+                    <div className="business-hours">
+                        
                     </div>
 
                 </div> {/* end ra-ra-map */}

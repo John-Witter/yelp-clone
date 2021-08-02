@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getBusinessByName } from "../../store/yelp-api";
+import Stars from "../Yelp Stars/Stars";
 import './ShowRestaurants.css'
 
 const ShowRestaurants = () => {
@@ -36,6 +37,11 @@ const ShowRestaurants = () => {
                         />
                         <div className='business-name'>{business.name}</div>
 
+                        <div className="price-rating">
+                            <div className='business-rating'> <Stars rating={business.rating} size='small' /></div>
+                            <div className='business-price'>{business.price}</div>
+                        </div>
+
                         <div className="business-description">
                             <div className="business-category-container">
                                 {business.categories && business.categories.map(category => (
@@ -46,11 +52,7 @@ const ShowRestaurants = () => {
                                 ))}
                             </div>
                         </div>
-                        
-                        <div className="price-rating">
-                            <div className='business-price'>Price: {business.price}</div>
-                            <div className='business-rating'>Yelp Rating: {business.rating}</div>
-                        </div>
+
                     </div>
                 ))}
             </div>
