@@ -120,9 +120,15 @@ const ShowSingleRestaurant = () => {
                         }
                     </div>
 
-                    <div className="business-hours">
-                        
-                    </div>
+                    {business.hours && <div className="business-hours">
+                        <div className="day">Mon {business.hours[0].open[0].start} {business.hours[0].open[0].end}</div>
+                        <div className="day">Tue {business.hours[0].open[0].start} {business.hours[0].open[0].end}</div>
+                        <div className="day">Wed {business.hours[0].open[0].start} {business.hours[0].open[0].end}</div>
+                        <div className="day">Thu {business.hours[0].open[0].start} {business.hours[0].open[0].end}</div>
+                        <div className="day">Fri {business.hours[0].open[0].start} {business.hours[0].open[0].end}</div>
+                        <div className="day">Sat {business.hours[0].open[0].start} {business.hours[0].open[0].end}</div>
+                        <div className="day">Sun {business.hours[0].open[0].start} {business.hours[0].open[0].end}</div>
+                    </div>}
 
                 </div> {/* end ra-ra-map */}
 
