@@ -37,17 +37,51 @@
     background-color: #C9DEE1;
 }
 
+
 .business-name {
     font-size: 1.25rem;
     font-weight: 530;
 }
 
-.business-price {
+.business-description {
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+                        "cost . . rating"
+                        ". cat . .";
+}
+
+.business-category-container {
+    grid-area: cat;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    /* justify-content: flex-end; */
+    flex-wrap: wrap;
+}
+
+.business-category {
     font-size: .75rem;
+    margin-left: 1rem;
+}
+
+.price-rating {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+}
+
+.business-price {
+    grid-area: cost;
+    font-size: .75rem;
+    margin-right: -1rem;
 }
 
 .business-rating {
+    grid-area: rating;
     font-size: .75rem;
+    margin-right: -1rem;
 }
 
 .business-photo {
