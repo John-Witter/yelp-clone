@@ -121,95 +121,120 @@ const ShowSingleRestaurant = () => {
                     </div>
 
                     {business.hours && <div className="business-hours">
-                        <div className="day">
-                         className='business-hours-day-container' <span className="business-hours-day"><span>
-                                
-                                Mon
-                            </span></span>
-                            <span className="business-hours-open">
-                                {business.hours[0].open[0].start}
-                            </span>
-                            <span className="business-hours-close">
-                                {business.hours[0].open[0].end}
-                            </span>
+                        <div className="business-hours-title">
+                            Hours
                         </div>
                         <div className="day">
-                            <span className='business-hours-day-container'>
-                                <span className="business-hours-day">
-                                Tue 
-                            </span>
-                            </span>
-                            <span className="business-hours-open">
+                            <div className="business-hours-day-container">
+                                <div className='business-hours-day'>
+                                    Mon
+                                </div>
+                            </div>
+                            <div className="business-hours-open">
                                 {business.hours[0].open[0].start}
-                            </span>
-                            <span className="business-hours-close">
+                            </div>
+                            <div className="business-hours-dash">
+                                -
+                            </div>
+                            <div className="business-hours-close">
                                 {business.hours[0].open[0].end}
-                            </span>
+                            </div>
                         </div>
                         <div className="day">
-                            <span className='business-hours-day-container'>
-                                <span className="business-hours-day">
-                                Wed
-                            </span>
-                            </span>
-                            <span className="business-hours-open">
+                            <div className='business-hours-day-container'>
+                                <div className="business-hours-day">
+                                    Tue
+                                </div>
+                            </div>
+                            <div className="business-hours-open">
                                 {business.hours[0].open[0].start}
-                            </span>
-                            <span className="business-hours-close">
+                            </div>
+                            <div className="business-hours-dash">
+                                -
+                            </div>
+                            <div className="business-hours-close">
                                 {business.hours[0].open[0].end}
-                            </span>
+                            </div>
                         </div>
                         <div className="day">
-                            <span className='business-hours-day-container'>
-                                <span className="business-hours-day">
-                                Thu
-                            </span>
-                            </span>
-                            <span className="business-hours-open">
+                            <div className='business-hours-day-container'>
+                                <div className="business-hours-day">
+                                    Wed
+                                </div>
+                            </div>
+                            <div className="business-hours-open">
                                 {business.hours[0].open[0].start}
-                            </span>
-                            <span className="business-hours-close">
+                            </div>
+                            <div className="business-hours-dash">
+                                -
+                            </div>
+                            <div className="business-hours-close">
                                 {business.hours[0].open[0].end}
-                            </span>
+                            </div>
                         </div>
                         <div className="day">
-                            <span className='business-hours-day-container'>
-                                <span className="business-hours-day">
-                                Fri 
-                            </span>
-                            </span>
-                            <span className="business-hours-open">
+                            <div className='business-hours-day-container'>
+                                <div className="business-hours-day">
+                                    Thu
+                                </div>
+                            </div>
+                            <div className="business-hours-open">
                                 {business.hours[0].open[0].start}
-                            </span>
-                            <span className="business-hours-close">
+                            </div>
+                            <div className="business-hours-dash">
+                                -
+                            </div>
+                            <div className="business-hours-close">
                                 {business.hours[0].open[0].end}
-                            </span>
+                            </div>
                         </div>
                         <div className="day">
-                            <span className='business-hours-day-container'>
-                                <span className="business-hours-day">
-                                Sat
-                            </span>
-                            </span>
-                            <span className="business-hours-open">
+                            <div className='business-hours-day-container'>
+                                <div className="business-hours-day">
+                                    Fri
+                                </div>
+                            </div>
+                            <div className="business-hours-open">
                                 {business.hours[0].open[0].start}
-                            </span>
-                            <span className="business-hours-close">
+                            </div>
+                            <div className="business-hours-dash">
+                                -
+                            </div>
+                            <div className="business-hours-close">
                                 {business.hours[0].open[0].end}
-                            </span>
+                            </div>
                         </div>
                         <div className="day">
-                            <span className='business-hours-day-container'>
-                                <span className="business-hours-day">
-                                Sun
-                            </span>
-                            </span>
-                            <span className="business-hours-open">
+                            <div className='business-hours-day-container'>
+                                <div className="business-hours-day">
+                                    Sat
+                                </div>
+                            </div>
+                            <div className="business-hours-open">
                                 {business.hours[0].open[0].start}
-                            </span>
-                            <span className="business-hours-close">
+                            </div>
+                            <div className="business-hours-dash">
+                                -
+                            </div>
+                            <div className="business-hours-close">
                                 {business.hours[0].open[0].end}
-                            </span>
+                            </div>
+                        </div>
+                        <div className="day">
+                            <div className='business-hours-day-container'>
+                                <div className="business-hours-day">
+                                    Sun
+                                </div>
+                            </div>
+                            <div className="business-hours-open">
+                                {business.hours[0].open[0].start}
+                            </div>
+                            <div className="business-hours-dash">
+                                -
+                            </div>
+                            <div className="business-hours-close">
+                                {business.hours[0].open[0].end}
+                            </div>
                         </div>
                     </div>}
 
