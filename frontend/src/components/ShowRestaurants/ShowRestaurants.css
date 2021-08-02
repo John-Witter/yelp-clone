@@ -62,26 +62,27 @@
 
 .business-category {
     font-size: .75rem;
-    margin-left: 1rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
 }
 
 .price-rating {
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
-    margin-top: 1rem;
+    justify-content: center;
+    /* margin-top: 1rem; */
 }
 
 .business-price {
     grid-area: cost;
     font-size: .75rem;
-    margin-right: -1rem;
+    margin-right: 0.5rem;
 }
 
 .business-rating {
     grid-area: rating;
     font-size: .75rem;
-    margin-right: -1rem;
+    margin-right: 1rem;
 }
 
 .business-photo {
