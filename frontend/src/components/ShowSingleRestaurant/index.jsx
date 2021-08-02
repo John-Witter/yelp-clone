@@ -4,8 +4,8 @@ import { useParams } from "react-router-dom";
 import { getBusinessById } from '../../store/yelp-api'
 import Rating from "../Rating";
 import Review from "../Review";
-// import BusinessMap from './BusinessMap'
 import BusinessMap from "../Map/BusinessMap";
+import Stars from "../Yelp Stars/Stars";
 import './ShowSingleRestaurant.css'
 
 const ShowSingleRestaurant = () => {
@@ -32,12 +32,14 @@ const ShowSingleRestaurant = () => {
         getCurrentBusiness()
     }, [dispatch, id])
 
+    // return (<Stars rating={4.5}/>)
+
     return (
         <div className='single-business-parent'>
 
             <div className='single-business-frame' key={business.id}>
                 <div className='single-business-name'>
-                    {business.name}
+                    {business.name} <Stars rating={business.rating} />
                 </div>
                 <div className="single-business-alias-container">
                     {business.price}{business.categories &&
