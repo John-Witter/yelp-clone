@@ -85,7 +85,7 @@
     height: 3rem;
     display: inline;
     margin-right: 1rem;
-    margin-bottom: .25rem;
+    margin-bottom: .5rem;
 }
 
 .yelp-user-photo {
@@ -102,6 +102,13 @@
 .user-name {
     font-size: 1rem;
     color: #505050;
+    display: flex;
+    align-items: center;
+}
+
+.user-photo {
+    margin-right: 1rem;
+    margin-bottom: .5rem;
 }
 
 .user-ratings {

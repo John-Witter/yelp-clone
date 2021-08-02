@@ -40,7 +40,7 @@ const ShowSingleRestaurant = () => {
                     {business.name}
                 </div>
                 <div className="single-business-alias-container">
-                    {business.categories &&
+                    {business.price}{business.categories &&
                         business.categories.map(category => (
                             <div className="single-business-alias" key={category.alias}>
                                 {category.title}
@@ -59,14 +59,14 @@ const ShowSingleRestaurant = () => {
                         {business.location.display_address[1]}
                     </div>
                 </div>}
-                <div className="yelp-info">
+                {/* <div className="yelp-info">
                     <div className='single-business-price'>
                         Price: {business.price}
                     </div>
                     <div className='single-business-rating'>
                         Yelp Rating: {business.rating}
                     </div>
-                </div>
+                </div> */}
                 {business.photos && <div className="photos">
                     <img src={business.photos[0]} alt={business.name}
                         className='single-business-photo photo1'
@@ -86,7 +86,7 @@ const ShowSingleRestaurant = () => {
                         {userReviews && userReviews.map((review, idx) => (
                             <div className="user-rat-rev" key={`user-rat-rev ${idx}`}>
                                 <div className="user-name">
-                                    <img className='yelp-user-photo' src='https://images.unsplash.com/photo-1547354142-526457358bb7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHNpbGhvdWV0dGV8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60' alt='profile pic' />{user && review.User.username === user.username ? `Your Review` : review.User.username} <span className='review-time-created'>{review.createdAt.split('T')[0]}</span>
+                                    <img className='yelp-user-photo user-photo' src='https://images.unsplash.com/photo-1547354142-526457358bb7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHNpbGhvdWV0dGV8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60' alt='profile pic' />{user && review.User.username === user.username ? `Your Review` : review.User.username} <span className='review-time-created'>{review.createdAt.split('T')[0]}</span>
                                 </div>
                                 <div className="user-ratings">
                                     Rating: {userRatings[idx] && userRatings[idx].rating}
