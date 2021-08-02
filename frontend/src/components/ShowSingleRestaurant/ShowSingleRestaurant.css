@@ -217,6 +217,12 @@
     margin-bottom: 5rem;
 }
 
+.business-hours-title {
+    width: 2.75rem;
+    margin-left: 1rem;
+    border-bottom: 1px solid black;
+}
+
 .business-hours {
     width: 20rem;
     height: 25rem;
@@ -224,30 +230,33 @@
     margin: 0 1rem 0 2rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .day {
     /* margin: .5rem 1rem; */
     padding: 1rem;
-}
-
-.business-hours-day {
-    /* color: #F9FBFC; */
-    color: #3C4243;
-    /* font-weight: bold; */
-    /* width: 33.13px !important; */
-    margin-right: 1rem;
+    display: flex;
     
-    /* margin: .5rem 1rem; */
-
 }
 
 .business-hours-day-container {
     width: 1.5rem;
+    margin-right: 1rem;
+}
+
+.business-hours-day {
+    color: #3C4243;
+    width: 1.5rem;
+    display: inline;
 }
 
 .business-hours-open {
-    margin-right: 1rem;
+    margin-right: .5rem;
+}
+
+.business-hours-dash {
+    margin-right: .5rem;
 }
 
 .business-hours-close {
