@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getBusinessByName } from "../../store/yelp-api";
+import Stars from "../Yelp Stars/Stars";
 // import { getUserLocation } from "../../store/userLocation";
 import './HomePage.css'
 
@@ -26,7 +27,7 @@ const HomePage = () => {
         }
         getUserLocation()
     }, [dispatch])
-    
+
     useEffect(() => {
         if (location) {
             dispatch(getBusinessByName(searchTerm, location))
@@ -48,6 +49,44 @@ const HomePage = () => {
                 <div>
                     <div className='business-parent'>
                         {businessesObj?.map((business, idx) => (
+                            <div className='business-frame' key={business.id + idx}
+                                onClick={() => handleBusinessClick(business.id)}
+                            >
+                                <img src={business.image_url} alt={business.name}
+                                    className='business-photo'
+                                />
+                                <div className='business-name'>{business.name}</div>
+
+                                <div className="price-rating">
+                                    <div className='business-rating'> <Stars rating={business.rating} size='small' /></div>
+                                    <div className='business-price'>{business.price}</div>
+                                </div>
+
+                                <div className="business-description">
+                                    <div className="business-category-container">
+                                        {business.categories && business.categories.map(category => (
+                                            <div className='business-category'
+                                                key={`${business.name}-${category.title}`}>
+                                                {category.title}
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                            </div>
+                        ))}
+                    </div>
+                </div>}
+        </div>
+    )
+}
+
+export default HomePage
+
+
+/*
+                   <div className='business-parent'>
+                        {businessesObj?.map((business, idx) => (
                             <div className='business-frame' key={`${business.id}Home`}
                                 onClick={() => handleBusinessClick(business.id)}
                             >
@@ -60,9 +99,4 @@ const HomePage = () => {
                             </div>
                         ))}
                     </div>
-                </div>}
-        </div>
-    )
-}
-
-export default HomePage
+*/
