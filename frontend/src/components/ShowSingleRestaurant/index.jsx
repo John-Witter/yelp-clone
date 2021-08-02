@@ -32,7 +32,14 @@ const ShowSingleRestaurant = () => {
         getCurrentBusiness()
     }, [dispatch, id])
 
-    // return (<Stars rating={4.5}/>)
+    const formatTime = (inputTime) => {
+        let returnTime = inputTime.slice(0, 2)
+        returnTime += ':'
+        returnTime += inputTime.slice(2)
+        return returnTime
+        // if (inputTime <= 1200) {
+        // }
+    }
 
     return (
         <div className='single-business-parent'>
@@ -131,13 +138,13 @@ const ShowSingleRestaurant = () => {
                                 </div>
                             </div>
                             <div className="business-hours-open">
-                                {business.hours[0].open[0].start}
+                                {formatTime(business.hours[0].open[0].start)}
                             </div>
                             <div className="business-hours-dash">
                                 -
                             </div>
                             <div className="business-hours-close">
-                                {business.hours[0].open[0].end}
+                                {formatTime(business.hours[0].open[0].end)}
                             </div>
                         </div>
                         <div className="day">
@@ -147,13 +154,13 @@ const ShowSingleRestaurant = () => {
                                 </div>
                             </div>
                             <div className="business-hours-open">
-                                {business.hours[0].open[0].start}
+                                {formatTime(business.hours[0].open[0].start)}
                             </div>
                             <div className="business-hours-dash">
                                 -
                             </div>
                             <div className="business-hours-close">
-                                {business.hours[0].open[0].end}
+                                {formatTime(business.hours[0].open[0].end)}
                             </div>
                         </div>
                         <div className="day">
@@ -163,13 +170,13 @@ const ShowSingleRestaurant = () => {
                                 </div>
                             </div>
                             <div className="business-hours-open">
-                                {business.hours[0].open[0].start}
+                                {formatTime(business.hours[0].open[0].start)}
                             </div>
                             <div className="business-hours-dash">
                                 -
                             </div>
                             <div className="business-hours-close">
-                                {business.hours[0].open[0].end}
+                                {formatTime(business.hours[0].open[0].end)}
                             </div>
                         </div>
                         <div className="day">
@@ -179,13 +186,13 @@ const ShowSingleRestaurant = () => {
                                 </div>
                             </div>
                             <div className="business-hours-open">
-                                {business.hours[0].open[0].start}
+                                {formatTime(business.hours[0].open[0].start)}
                             </div>
                             <div className="business-hours-dash">
                                 -
                             </div>
                             <div className="business-hours-close">
-                                {business.hours[0].open[0].end}
+                                {formatTime(business.hours[0].open[0].end)}
                             </div>
                         </div>
                         <div className="day">
@@ -195,13 +202,13 @@ const ShowSingleRestaurant = () => {
                                 </div>
                             </div>
                             <div className="business-hours-open">
-                                {business.hours[0].open[0].start}
+                                {formatTime(business.hours[0].open[0].start)}
                             </div>
                             <div className="business-hours-dash">
                                 -
                             </div>
                             <div className="business-hours-close">
-                                {business.hours[0].open[0].end}
+                                {formatTime(business.hours[0].open[0].end)}
                             </div>
                         </div>
                         <div className="day">
@@ -211,13 +218,13 @@ const ShowSingleRestaurant = () => {
                                 </div>
                             </div>
                             <div className="business-hours-open">
-                                {business.hours[0].open[0].start}
+                                {formatTime(business.hours[0].open[0].start)}
                             </div>
                             <div className="business-hours-dash">
                                 -
                             </div>
                             <div className="business-hours-close">
-                                {business.hours[0].open[0].end}
+                                {formatTime(business.hours[0].open[0].end)}
                             </div>
                         </div>
                         <div className="day">
@@ -227,13 +234,13 @@ const ShowSingleRestaurant = () => {
                                 </div>
                             </div>
                             <div className="business-hours-open">
-                                {business.hours[0].open[0].start}
+                                {formatTime(business.hours[0].open[0].start)}
                             </div>
                             <div className="business-hours-dash">
                                 -
                             </div>
                             <div className="business-hours-close">
-                                {business.hours[0].open[0].end}
+                                {formatTime(business.hours[0].open[0].end)}
                             </div>
                         </div>
                     </div>}
