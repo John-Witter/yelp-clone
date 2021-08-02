@@ -109,7 +109,8 @@ const ShowSingleRestaurant = () => {
                                             <img className='yelp-user-photo' src={review.user.image_url} alt={review.user.name} /></div> {review.user.name} <span className='review-time-created'>{review.time_created.split(' ')[0]}</span>
                                     </div>
                                     <div className="yelp-rating">
-                                        Rating: {review.rating}
+                                                                                
+                                        <Stars rating={review.rating} size='small'/>
                                     </div>
                                     <div className="yelp-review">
                                         {review.text}
