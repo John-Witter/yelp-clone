@@ -1,23 +1,22 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { csrfFetch } from "../../store/csrf";
+import Stars from "../Yelp Stars/Stars";
 import './Rating.css'
 
 const Rating = ({ id }) => {
-    const [rating, setRating] = useState(1)
     const user = useSelector(state => state.session.user)
     const userId = user.id
 
     const handleClick = async (e) => {
         e.preventDefault()
-        setRating(parseInt(e.target.value))
-
+        const val = e.target.value
         const res = await csrfFetch(`/api/rating/${id}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({rating, userId})
+            body: JSON.stringify({val, userId})
         })
 
         await res.json()
