@@ -35,8 +35,22 @@ const ShowRestaurants = () => {
                             className='business-photo'
                         />
                         <div className='business-name'>{business.name}</div>
-                        <div className='business-price'>Price: {business.price}</div>
-                        <div className='business-rating'>Yelp Rating: {business.rating}</div>
+
+                        <div className="business-description">
+                            <div className="business-category-container">
+                                {business.categories && business.categories.map(category => (
+                                    <div className='business-category'
+                                        key={`${business.name}-${category.title}`}>
+                                        {category.title}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        
+                        <div className="price-rating">
+                            <div className='business-price'>Price: {business.price}</div>
+                            <div className='business-rating'>Yelp Rating: {business.rating}</div>
+                        </div>
                     </div>
                 ))}
             </div>

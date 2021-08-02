@@ -24,12 +24,10 @@
 .rat-rev {
     /* grid-area: ra-ra; */
     width: 400px;
-    /* height: 400px; */
-    height: calc(100% - 5%);
+    height: 400px;
     overflow-y: scroll;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     margin: 0 1rem 1rem 1rem;
     background-color: #C9DEE1;
     /* padding-top: 2.5rem; */
@@ -122,23 +120,25 @@
     grid-area: name;
     font-size: 2rem;
     font-weight: bold;
-    margin: 2rem auto 1rem auto;
+    margin: 2rem auto .25rem auto;
     text-align: center;
     display: flex;
 }
 
 .single-business-alias-container {
     grid-area: alias;
-
+    display: flex;
+    justify-content: center;
 }
 
 .single-business-alias {
-    text-align: center;
+    /* text-align: center; */
+    padding-left: 1rem;
     margin-bottom: .25rem;
 }
 
 .single-business-alias:last-of-type {    
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
 .single-business-info {
