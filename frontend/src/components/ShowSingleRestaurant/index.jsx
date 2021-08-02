@@ -33,12 +33,20 @@ const ShowSingleRestaurant = () => {
     }, [dispatch, id])
 
     const formatTime = (inputTime) => {
-        let returnTime = inputTime.slice(0, 2)
+        let amPm = ''
+        let returnTime = ''
+        if (inputTime <= 1200) {
+            amPm += ' AM'
+            returnTime += inputTime.slice(0, 2)
+        } else {
+            amPm += ' PM'
+            returnTime += Number(inputTime.slice(0, 2)) - 12
+        }
+
         returnTime += ':'
         returnTime += inputTime.slice(2)
+        returnTime += amPm
         return returnTime
-        // if (inputTime <= 1200) {
-        // }
     }
 
     return (
