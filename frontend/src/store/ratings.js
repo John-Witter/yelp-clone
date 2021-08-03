@@ -33,7 +33,9 @@ export default function ratingReducer(state = {}, action) {
     switch(action.type) {
         case POST_RATING:
             console.log('!!!!!!POST_RATING action:', action)
-            const newRating = {rating: action.rating.newRating}
+            const newRating = {}
+            const userId = action.rating.newRating.userId
+            newRating[userId] = action.rating.newRating
             return newRating
         default:
             return state

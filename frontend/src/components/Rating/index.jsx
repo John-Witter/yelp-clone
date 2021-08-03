@@ -8,7 +8,7 @@ import './Rating.css'
 const Rating = ({ id }) => {
     const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
-    const userId = user.id
+    const userId = user.id    
 
     const handleClick = async (e) => {
         e.preventDefault()
