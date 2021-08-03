@@ -18,7 +18,7 @@ const ShowSingleRestaurant = () => {
     const user = useSelector(state => state.session.user)
     const currentRatings = useSelector(state => state.rating)
     const currentRatingsUserIds = Object.keys(currentRatings)
-    const [showRatingInput, setShowRatingInput] = useState(currentRatingsUserIds.includes(user.id))
+    // const [showRatingInput, setShowRatingInput] = useState(currentRatingsUserIds.includes(user.id))
 
     useEffect(() => {
         const getCurrentBusiness = async () => {
@@ -103,7 +103,7 @@ const ShowSingleRestaurant = () => {
                                 </div>
                                 <div className="user-ratings">
                                     {/* Rating: {userRatings[idx] && userRatings[idx].rating} */}
-                                    <Stars rating={userRatings[idx].rating} size='small' />
+                                    {userRatings[idx] && <Stars rating={userRatings[idx].rating} size='small' />}
                                 </div>
                                 <div className="user-reviews">
                                     {review.reviewText && review.reviewText}
