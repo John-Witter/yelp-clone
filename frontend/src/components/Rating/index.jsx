@@ -10,17 +10,18 @@ const Rating = ({ id }) => {
 
     const handleClick = async (e) => {
         e.preventDefault()
-        const val = e.target.value
+        const rating = e.target.value
+        console.log(rating)
         const res = await csrfFetch(`/api/rating/${id}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({val, userId})
+            body: JSON.stringify({rating, userId})
         })
 
-        await res.json()
-        // console.log('data', data.newRating)
+        const data = await res.json()
+        console.log('data', data.newRating)
     }
 
     return (
