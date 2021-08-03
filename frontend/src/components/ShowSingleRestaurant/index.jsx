@@ -94,7 +94,7 @@ const ShowSingleRestaurant = () => {
 
                 <div className="ra-ra-map">
                     <div className="rat-rev">
-                        {user && showRatingInput && <Rating id={id} />}
+                        {user && <Rating id={id} />}
                         {user && <Review id={id} />}
                         {userReviews && userReviews.map((review, idx) => (
                             <div className="user-rat-rev" key={`user-rat-rev ${idx}`}>

@@ -1,13 +1,15 @@
 import { createStore, combineReducers, applyMiddleware, compose } from "redux";
 import thunk from "redux-thunk";
 import ratingReducer from "./ratings";
+import reviewReducer from "./reviews";
 import sessionReducer from "./session";
 import yelpApiReducer from './yelp-api'
 
 const rootReducer = combineReducers({
     session: sessionReducer,
     yelpAPI: yelpApiReducer,
-    rating: ratingReducer
+    rating: ratingReducer,
+    review: reviewReducer
 })
 
 let enhancer
