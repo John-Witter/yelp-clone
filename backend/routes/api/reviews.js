@@ -4,11 +4,11 @@ const { Review } = require('../../db/models')
 const router = express.Router()
 
 router.post(
-    '/:id',
+    '/:businessId',
     asyncHandler(async (req, res) => {
-        const businessId = req.params.id
+        const businessId = req.params.businessId
         const userId = req.body.userId
-        const reviewText = req.body.review
+        const reviewText = req.body.reviewText
 
         console.log('reviewText', reviewText)
         console.log('userId', userId)
