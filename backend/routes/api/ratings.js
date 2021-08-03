@@ -4,9 +4,9 @@ const { Rating } = require('../../db/models')
 const router = express.Router()
 
 router.post(
-    '/:id',
+    '/:businessId',
     asyncHandler(async (req, res) => {
-        const businessId = req.params.id
+        const businessId = req.params.businessId
         const userId = req.body.userId
         const rating = req.body.rating
 

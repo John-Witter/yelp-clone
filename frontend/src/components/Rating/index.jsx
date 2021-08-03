@@ -1,26 +1,31 @@
 import { useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { csrfFetch } from "../../store/csrf";
+import { postRating } from "../../store/ratings";
 import Stars from "../Yelp Stars/Stars";
 import './Rating.css'
 
 const Rating = ({ id }) => {
+    const dispatch = useDispatch()
     const user = useSelector(state => state.session.user)
-    const userId = user.id
+    const userId = user.id    
 
     const handleClick = async (e) => {
         e.preventDefault()
-        const val = e.target.value
-        const res = await csrfFetch(`/api/rating/${id}`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({val, userId})
-        })
+        // const rating = e.target.value
+        // console.log(rating)
+        // const res = await csrfFetch(`/api/rating/${id}`, {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({rating, userId})
+        // })
 
-        await res.json()
+        // const data = await res.json()
         // console.log('data', data.newRating)
+        dispatch(postRating(id, userId, e.target.value))
+
     }
 
     return (

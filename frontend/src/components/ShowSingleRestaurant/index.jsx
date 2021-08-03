@@ -16,6 +16,9 @@ const ShowSingleRestaurant = () => {
     const [userRatings, setUserRatings] = useState([])
     const [userReviews, setUserReviews] = useState([])
     const user = useSelector(state => state.session.user)
+    const currentRatings = useSelector(state => state.rating)
+    const currentRatingsUserIds = Object.keys(currentRatings)
+    const [showRatingInput, setShowRatingInput] = useState(currentRatingsUserIds.includes(user.id))
 
     useEffect(() => {
         const getCurrentBusiness = async () => {
@@ -91,7 +94,7 @@ const ShowSingleRestaurant = () => {
 
                 <div className="ra-ra-map">
                     <div className="rat-rev">
-                        {user && <Rating id={id} />}
+                        {user && showRatingInput && <Rating id={id} />}
                         {user && <Review id={id} />}
                         {userReviews && userReviews.map((review, idx) => (
                             <div className="user-rat-rev" key={`user-rat-rev ${idx}`}>
