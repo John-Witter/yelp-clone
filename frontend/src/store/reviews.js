@@ -5,14 +5,14 @@ const POST_REVIEW = 'reviews/POST_REVIEW'
 const GET_REVIEWS_FOR_BUSINESS = 'reviews/GET_REVIEWS_FOR_BUSINESS'
 
 // actions
-const postReviewAction = (review) => ({
-    type: POST_REVIEW,
-    review
-})
-
 const getReviewsForBusinessAction = (reviews) => ({
     type: GET_REVIEWS_FOR_BUSINESS,
     reviews
+})
+
+const postReviewAction = (review) => ({
+    type: POST_REVIEW,
+    review
 })
 
 // thunks 

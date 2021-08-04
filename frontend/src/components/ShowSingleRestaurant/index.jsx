@@ -8,6 +8,7 @@ import BusinessMap from "../Map/BusinessMap";
 import Stars from "../Yelp Stars/Stars";
 import { getReviewsForBusiness } from "../../store/reviews";
 import './ShowSingleRestaurant.css'
+import { getRatingsForBusiness } from "../../store/ratings";
 
 const ShowSingleRestaurant = () => {
     const { id } = useParams()
@@ -35,6 +36,7 @@ const ShowSingleRestaurant = () => {
         }
         getCurrentBusiness()
         dispatch(getReviewsForBusiness(id))
+        dispatch(getRatingsForBusiness(id))
         currentRatings && console.log('currentRatings', currentRatings)
         currentRatingsUserIds && console.log('currentRatingsUserId', currentRatingsUserIds)
     }, [dispatch, id])

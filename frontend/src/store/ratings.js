@@ -2,8 +2,14 @@ import csrfFetch from "./csrf"
 
 // constants
 const POST_RATING = 'ratings/POST_RATING'
+const GET_RATINGS_FOR_BUSINESS = 'ratings/GET_RATINGS_FOR_BUSINESS'
 
 // actions 
+const getRatingsForBusinessAction = (ratings) => ({
+    type: GET_RATINGS_FOR_BUSINESS,
+    ratings
+})
+
 const postRatingAction = (rating) => ({
     type: POST_RATING,
     rating
@@ -11,6 +17,12 @@ const postRatingAction = (rating) => ({
 
 
 // thunks
+export const getRatingsForBusiness = (businessId) => async (dispatch) => {
+    const res = await csrfFetch(`/api/rating/${businessId}`)
+    const data = await res.json()
+    dispatch(getRatingsForBusinessAction(data))
+}
+
 export const postRating = (businessId, userId, rating) => async (dispatch) => {
     const res = await csrfFetch(`/api/rating/${businessId}`, {
         method: "POST",
@@ -31,6 +43,12 @@ export const postRating = (businessId, userId, rating) => async (dispatch) => {
 // reducer
 export default function ratingReducer(state = {}, action) {    
     switch(action.type) {
+        case GET_RATINGS_FOR_BUSINESS:
+            const ratings = {}
+            console.log('!!!GET_RATINGS_FOR_BUSINESS action:', action)
+            ratings['ratings'] = action
+            return ratings
+
         case POST_RATING:
             console.log('!!!!!!POST_RATING action:', action)
             const newRating = {}
