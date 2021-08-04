@@ -20,7 +20,6 @@ export const getReviewsForBusiness = (businessId) => async (dispatch) => {
     const res = await csrfFetch(`/api/review/${businessId}`)
 
     const data = await res.json()
-    console.log("!!!getReviewsForBusiness data:", data)
     dispatch(getReviewsForBusinessAction(data))
 }
 
@@ -35,7 +34,6 @@ export const postReview = (businessId, userId, reviewText) => async (dispatch) =
 
 
     const data = await res.json()
-    console.log('!!!!!!postReview data:', data)
     dispatch(postReviewAction(data))
 }
 
@@ -45,13 +43,16 @@ export default function reviewReducer (state={}, action) {
     switch(action.type) {
         case GET_REVIEWS_FOR_BUSINESS:
             const reviews = {}
-            console.log('!!!GET_REVIEWS_FOR_BUSINESS action:', action)
-            reviews['reviews'] = action
+            // console.log('!!!GET_REVIEWS_FOR_BUSINESS action:', action)
+            action.reviews.reviews.forEach(review => {
+                const userId = review.userId
+                reviews[userId] = review
+            })
             return reviews
 
         case POST_REVIEW:
             const newObj = {...state}            
-            console.log('!!!!!!POST_REVIEW action:', action)
+            // console.log('!!!!!!POST_REVIEW action:', action)
             const userId = action.review.review.userId
             newObj[userId] = action.review.review
             return newObj
