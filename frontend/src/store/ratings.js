@@ -46,7 +46,10 @@ export default function ratingReducer(state = {}, action) {
         case GET_RATINGS_FOR_BUSINESS:
             const ratings = {}
             console.log('!!!GET_RATINGS_FOR_BUSINESS action:', action)
-            ratings['ratings'] = action
+            action.ratings.ratings.forEach(rating => {
+                const userId = rating.userId
+                ratings[userId] = rating
+            })
             return ratings
 
         case POST_RATING:
