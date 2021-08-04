@@ -5,14 +5,14 @@ const POST_REVIEW = 'reviews/POST_REVIEW'
 const GET_REVIEWS_FOR_BUSINESS = 'reviews/GET_REVIEWS_FOR_BUSINESS'
 
 // actions
-const postReviewAction = (review) => ({
-    type: POST_REVIEW,
-    review
-})
-
 const getReviewsForBusinessAction = (reviews) => ({
     type: GET_REVIEWS_FOR_BUSINESS,
     reviews
+})
+
+const postReviewAction = (review) => ({
+    type: POST_REVIEW,
+    review
 })
 
 // thunks 
@@ -58,7 +58,7 @@ export default function reviewReducer (state={}, action) {
             return newObj
 
         default:
-            console.log('!!!reviewReducer default action:', action)
+            // console.log('!!!reviewReducer default action:', action)
             return state
     }
 }

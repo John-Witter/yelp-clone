@@ -3,6 +3,21 @@ const asyncHandler = require('express-async-handler')
 const { Rating } = require('../../db/models')
 const router = express.Router()
 
+router.get(
+    '/:businessId',
+    asyncHandler(async (req, res) => {
+        const businessId = req.params.businessId
+
+        const ratings = await Rating.findAll({
+            where: {
+                businessId: businessId
+            }
+        })
+        console.log("!!!!!!GET RATINGS:", ratings)
+        res.json({ ratings })
+    })
+)
+
 router.post(
     '/:businessId',
     asyncHandler(async (req, res) => {
