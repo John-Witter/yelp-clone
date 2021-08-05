@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getBusinessById } from '../../store/yelp-api'
+import { getReviewsForBusiness } from "../../store/reviews";
+import { getRatingsForBusiness } from "../../store/ratings";
 import Rating from "../Rating";
 import Review from "../Review";
 import BusinessMap from "../Map/BusinessMap";
 import Stars from "../Yelp Stars/Stars";
-import { getReviewsForBusiness } from "../../store/reviews";
 import './ShowSingleRestaurant.css'
-import { getRatingsForBusiness } from "../../store/ratings";
 
 const ShowSingleRestaurant = () => {
     const { id } = useParams()
@@ -19,8 +19,11 @@ const ShowSingleRestaurant = () => {
     const [userReviews, setUserReviews] = useState([])
     const user = useSelector(state => state.session.user)
     const currentRatings = useSelector(state => state.rating)
+    const currentReviews = useSelector(state => state.review)
     const currentRatingsUserIds = Object.keys(currentRatings)
     // const [showRatingInput, setShowRatingInput] = useState(currentRatingsUserIds.includes(user.id))
+    const [showRatingInput, setShowRatingInput] = useState(true)
+    const [showReviewInput, setShowReviewInput] = useState(true)
 
     useEffect(() => {
         const getCurrentBusiness = async () => {
@@ -28,17 +31,26 @@ const ShowSingleRestaurant = () => {
             console.log('currentBusiness', currentBusiness)
             setBusiness(currentBusiness.data)
             setYelpReviews(currentBusiness.yelpReviews.reviews)
-            setUserRatings(currentBusiness.userRatings)
-            setUserReviews(currentBusiness.userReviews)
+            // setUserRatings(currentBusiness.userRatings)
+            // setUserReviews(currentBusiness.userReviews)
             if (business.categories) {
                 console.log('!!!!!business.categories.title', business.categories[0].title)
             }
+            if (user) {
+                setShowReviewInput(currentRatingsUserIds.includes(user.id))
+                setShowRatingInput(currentRatingsUserIds.includes(user.id))
+                console.log('!!!currentRatingsUserIds.includes(user.id):', currentRatingsUserIds.includes(user.id))
+                console.log('!!!currentRatingsUserIds.includes(user.id):', currentRatingsUserIds.includes(user.id))
+
+            }
         }
-        getCurrentBusiness()
         dispatch(getReviewsForBusiness(id))
         dispatch(getRatingsForBusiness(id))
-        currentRatings && console.log('currentRatings', currentRatings)
-        currentRatingsUserIds && console.log('currentRatingsUserId', currentRatingsUserIds)
+        getCurrentBusiness()
+        Object.keys(currentRatings).length && console.log('!!!!!!currentRatings:', currentRatings)
+        Object.keys(currentReviews).length && console.log('!!!!!!currentReviews:', currentReviews)
+        // currentRatings && console.log('currentRatings', currentRatings)
+        // currentRatingsUserIds && console.log('currentRatingsUserId', currentRatingsUserIds)
     }, [dispatch, id])
 
     const formatTime = (inputTime) => {
@@ -100,22 +112,32 @@ const ShowSingleRestaurant = () => {
 
                 <div className="ra-ra-map">
                     <div className="rat-rev">
-                        {user && <Rating id={id} />}
-                        {user && <Review id={id} />}
-                        {userReviews && userReviews.map((review, idx) => (
+                        {user && !showRatingInput && <Rating id={id} />}
+                        {user && !showReviewInput && <Review id={id} />}
+
+                        {showRatingInput && console.log('showRatingInput:', showRatingInput)}
+                        {!showRatingInput && console.log('!showRatingInput:', showRatingInput, '(currentRatingsUserIds.includes(user.id)):', (currentRatingsUserIds.includes(user.id)), 'currentRatingsUserIds:', currentRatingsUserIds, 'user:', user, 'userReviews', userReviews, 'currentRatings:', currentRatings, 'currentReviews:', currentReviews)}
+
+                        {/* {Object.keys(currentRatings).length && console.log('!!!!!!currentRatings:', currentRatings)}
+
+                        {Object.keys(currentReviews).length && console.log('!!!!!!currentReviews:', currentReviews)} */}
+
+                        {Object.keys(currentReviews).length && Object.keys(currentReviews).map((review, idx) => (
                             <div className="user-rat-rev" key={`user-rat-rev ${idx}`}>
+                                {console.log('$$$$$$$$review:', currentReviews[review])}
                                 <div className="user-name">
-                                    <img className='yelp-user-photo user-photo' src='https://images.unsplash.com/photo-1547354142-526457358bb7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHNpbGhvdWV0dGV8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60' alt='profile pic' />{user && review.User.username === user.username ? `Your Review` : review.User.username} <span className='review-time-created'>{review.createdAt.split('T')[0]}</span>
+                                    <img src="https://images.unsplash.com/photo-1547354142-526457358bb7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHNpbGhvdWV0dGV8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60' alt='profile pic" alt="profile pic" className="yelp-user-photo user-photo" /> <span className="review-time-created">{currentReviews[review].createdAt.split('T')[0]}</span>
                                 </div>
                                 <div className="user-ratings">
-                                    {/* Rating: {userRatings[idx] && userRatings[idx].rating} */}
-                                    {userRatings[idx] && <Stars rating={userRatings[idx].rating} size='small' />}
+                                    {currentRatings[review] && <Stars rating={currentRatings[review].rating} size='small' />}
                                 </div>
                                 <div className="user-reviews">
-                                    {review.reviewText && review.reviewText}
+                                    {currentReviews[review].reviewText && currentReviews[review].reviewText}
                                 </div>
-                            </div>
+                            </div>                            
                         ))}
+
+
                         {yelpReviews && yelpReviews.map(review => {
                             return (
                                 <div className="yelp-rat-rev" key={review.id}>
