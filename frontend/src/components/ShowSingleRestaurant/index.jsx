@@ -39,8 +39,8 @@ const ShowSingleRestaurant = () => {
             if (user) {
                 setShowReviewInput(currentRatingsUserIds.includes(user.id))
                 setShowRatingInput(currentRatingsUserIds.includes(user.id))
-                console.log('!!!currentRatingsUserIds.includes(user.id):', currentRatingsUserIds.includes(user.id))
-                console.log('!!!currentRatingsUserIds.includes(user.id):', currentRatingsUserIds.includes(user.id))
+                console.log('!!!currentRatingsUserIds.includes(user.id):', currentRatingsUserIds.includes(user.id), 'currentRatingsUserIds', currentRatingsUserIds)
+                console.log('!!!currentRatingsUserIds.includes(user.id):', currentRatingsUserIds.includes(user.id), 'user', user)
 
             }
         }
@@ -116,7 +116,7 @@ const ShowSingleRestaurant = () => {
                         {user && !showReviewInput && <Review id={id} />}
 
                         {showRatingInput && console.log('showRatingInput:', showRatingInput)}
-                        {!showRatingInput && console.log('!showRatingInput:', showRatingInput, '(currentRatingsUserIds.includes(user.id)):', (currentRatingsUserIds.includes(user.id)), 'currentRatingsUserIds:', currentRatingsUserIds, 'user:', user, 'userReviews', userReviews, 'currentRatings:', currentRatings, 'currentReviews:', currentReviews)}
+                        {!showRatingInput && user.id && console.log('!showRatingInput:', showRatingInput, '(currentRatingsUserIds.includes(user.id)):', (currentRatingsUserIds.includes(user.id)), 'currentRatingsUserIds:', currentRatingsUserIds, 'user:', user, 'userReviews', userReviews, 'currentRatings:', currentRatings, 'currentReviews:', currentReviews)}
 
                         {/* {Object.keys(currentRatings).length && console.log('!!!!!!currentRatings:', currentRatings)}
 
