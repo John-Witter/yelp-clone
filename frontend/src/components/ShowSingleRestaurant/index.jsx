@@ -39,8 +39,8 @@ const ShowSingleRestaurant = () => {
             if (user) {
                 setShowReviewInput(currentRatingsUserIds.includes(user.id))
                 setShowRatingInput(currentRatingsUserIds.includes(user.id))
-                console.log('!!!currentRatingsUserIds.includes(user.id):', currentRatingsUserIds.includes(user.id))
-                console.log('!!!currentRatingsUserIds.includes(user.id):', currentRatingsUserIds.includes(user.id))
+                console.log('!!!currentRatingsUserIds.includes(user.id):', currentRatingsUserIds.includes(user.id), 'currentRatingsUserIds', currentRatingsUserIds)
+                console.log('!!!currentRatingsUserIds.includes(user.id):', currentRatingsUserIds.includes(user.id), 'user', user)
 
             }
         }
