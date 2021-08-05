@@ -50,7 +50,7 @@ export const RatingsAndReviews = ({ currentBusiness, currentUser = null }) => {
 
         console.log('U S E R R E V I E W S : :', currentUser)
         console.log('U S E R R E V I E W S : :', currentBusiness)
-    }, [currentUser])
+    }, [currentBusiness, currentUser])
 
     // create an object that contains userRatings and userReviews for
     // matching users
