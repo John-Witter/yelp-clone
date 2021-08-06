@@ -8,6 +8,7 @@ import Rating from "../Rating";
 import Review from "../Review";
 import BusinessMap from "../Map/BusinessMap";
 import Stars from "../Yelp Stars/Stars";
+import { RatingsAndReviews } from "./RatingsAndReviews";
 import './ShowSingleRestaurant.css'
 
 const ShowSingleRestaurant = () => {
@@ -20,27 +21,32 @@ const ShowSingleRestaurant = () => {
     const user = useSelector(state => state.session.user)
     const currentRatings = useSelector(state => state.rating)
     const currentReviews = useSelector(state => state.review)
-    const currentRatingsUserIds = Object.keys(currentRatings)
+    const [currentRatingsUserIds, setCurrentRatingsUserIds] = useState([])
     // const [showRatingInput, setShowRatingInput] = useState(currentRatingsUserIds.includes(user.id))
     const [showRatingInput, setShowRatingInput] = useState(true)
     const [showReviewInput, setShowReviewInput] = useState(true)
+    const [currentBusiness, setCurrentBusiness] = useState(null)
 
     useEffect(() => {
         const getCurrentBusiness = async () => {
-            const currentBusiness = await dispatch(getBusinessById(id))
-            console.log('currentBusiness', currentBusiness)
-            setBusiness(currentBusiness.data)
-            setYelpReviews(currentBusiness.yelpReviews.reviews)
+            const currentBusiness111 = await dispatch(getBusinessById(id))
+            console.log('currentBusiness111', currentBusiness111)
+            setCurrentBusiness(currentBusiness111)
+            setBusiness(currentBusiness111.data)
+            setYelpReviews(currentBusiness111.yelpReviews.reviews)
             // setUserRatings(currentBusiness.userRatings)
             // setUserReviews(currentBusiness.userReviews)
             if (business.categories) {
-                console.log('!!!!!business.categories.title', business.categories[0].title)
+                // console.log('!!!!!business.categories.title', business.categories[0].title)
             }
             if (user) {
+                if (currentBusiness && currentBusiness.userRatings.length) setCurrentRatingsUserIds(currentBusiness.userRatings.map(rating => {
+                    return rating.userId
+                }))
                 setShowReviewInput(currentRatingsUserIds.includes(user.id))
                 setShowRatingInput(currentRatingsUserIds.includes(user.id))
-                console.log('!!!currentRatingsUserIds.includes(user.id):', currentRatingsUserIds.includes(user.id), 'currentRatingsUserIds', currentRatingsUserIds)
-                console.log('!!!currentRatingsUserIds.includes(user.id):', currentRatingsUserIds.includes(user.id), 'user', user)
+                // console.log('!!!currentRatingsUserIds.includes(user.id):', currentRatingsUserIds.includes(user.id), 'currentRatingsUserIds', currentRatingsUserIds)
+                // console.log('!!!currentRatingsUserIds.includes(user.id):', currentRatingsUserIds.includes(user.id), 'user', user)
 
             }
         }
@@ -111,22 +117,28 @@ const ShowSingleRestaurant = () => {
                 </div>}
 
                 <div className="ra-ra-map">
-                    <div className="rat-rev">
-                        {user && !showRatingInput && <Rating id={id} />}
-                        {user && !showReviewInput && <Review id={id} />}
+                    {currentBusiness && <RatingsAndReviews currentBusiness={currentBusiness} currentUser={user} />}
+                    {user && showRatingInput && <Rating id={id} />}
+                    {user && showReviewInput && <Review id={id} />}
+                    {user && console.log('showRatingInput:', showRatingInput, 'showReviewInput:', showReviewInput, 'id:', id)}
+                    {/* <div className="rat-rev">
 
                         {showRatingInput && console.log('showRatingInput:', showRatingInput)}
                         {!showRatingInput && user.id && console.log('!showRatingInput:', showRatingInput, '(currentRatingsUserIds.includes(user.id)):', (currentRatingsUserIds.includes(user.id)), 'currentRatingsUserIds:', currentRatingsUserIds, 'user:', user, 'userReviews', userReviews, 'currentRatings:', currentRatings, 'currentReviews:', currentReviews)}
 
-                        {/* {Object.keys(currentRatings).length && console.log('!!!!!!currentRatings:', currentRatings)}
+                        {Object.keys(currentRatings).length && console.log('!!!!!!currentRatings:', currentRatings)}
 
-                        {Object.keys(currentReviews).length && console.log('!!!!!!currentReviews:', currentReviews)} */}
+                        {Object.keys(currentReviews).length && console.log('!!!!!!currentReviews:', currentReviews)}
+
+
+                        <RatingsAndReviews currentBusiness={currentBusiness} currentUser={user} />
+
 
                         {Object.keys(currentReviews).length && Object.keys(currentReviews).map((review, idx) => (
                             <div className="user-rat-rev" key={`user-rat-rev ${idx}`}>
                                 {console.log('$$$$$$$$review:', currentReviews[review])}
                                 <div className="user-name">
-                                    <img src="https://images.unsplash.com/photo-1547354142-526457358bb7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHNpbGhvdWV0dGV8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60' alt='profile pic" alt="profile pic" className="yelp-user-photo user-photo" /> <span className="review-time-created">{currentReviews[review].createdAt.split('T')[0]}</span>
+                                    <img src="https://images.unsplash.com/photo-1547354142-526457358bb7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHNpbGhvdWV0dGV8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60' alt='profile pic" alt="profile pic" className="yelp-user-photo user-photo" /> {user.id && currentReviews[review].userId === user.id ? `Your Review`: `USERNAME TODO`} <span className="review-time-created">{currentReviews[review].createdAt.split('T')[0]}</span>
                                 </div>
                                 <div className="user-ratings">
                                     {currentRatings[review] && <Stars rating={currentRatings[review].rating} size='small' />}
@@ -156,7 +168,7 @@ const ShowSingleRestaurant = () => {
                                 </div>
                             )
                         })}
-                    </div>
+                    </div> */}
 
                     <div className="business-map">
                         {business.coordinates &&

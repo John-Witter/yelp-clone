@@ -58,6 +58,7 @@
     justify-content: space-evenly;
     /* justify-content: flex-end; */
     flex-wrap: wrap;
+    color: #3C4243;
 }
 
 .business-category {
