@@ -85,5 +85,5 @@
 }
 
 .business-frame:hover {
-
+    box-shadow: 2px 3px rgb(0 0 0 / 50%), 0 0px 2px hsla(0, 0%, 0%, .2);
 }
