@@ -21,7 +21,7 @@ const ShowSingleRestaurant = () => {
     const user = useSelector(state => state.session.user)
     const currentRatings = useSelector(state => state.rating)
     const currentReviews = useSelector(state => state.review)
-    const currentRatingsUserIds = Object.keys(currentRatings)
+    const [currentRatingsUserIds, setCurrentRatingsUserIds] = useState([])
     // const [showRatingInput, setShowRatingInput] = useState(currentRatingsUserIds.includes(user.id))
     const [showRatingInput, setShowRatingInput] = useState(true)
     const [showReviewInput, setShowReviewInput] = useState(true)
@@ -40,6 +40,9 @@ const ShowSingleRestaurant = () => {
                 // console.log('!!!!!business.categories.title', business.categories[0].title)
             }
             if (user) {
+                if (currentBusiness && currentBusiness.userRatings.length) setCurrentRatingsUserIds(currentBusiness.userRatings.map(rating => {
+                    return rating.userId
+                }))
                 setShowReviewInput(currentRatingsUserIds.includes(user.id))
                 setShowRatingInput(currentRatingsUserIds.includes(user.id))
                 // console.log('!!!currentRatingsUserIds.includes(user.id):', currentRatingsUserIds.includes(user.id), 'currentRatingsUserIds', currentRatingsUserIds)
@@ -115,9 +118,10 @@ const ShowSingleRestaurant = () => {
 
                 <div className="ra-ra-map">
                     {currentBusiness && <RatingsAndReviews currentBusiness={currentBusiness} currentUser={user} />}
+                    {user && showRatingInput && <Rating id={id} />}
+                    {user && showReviewInput && <Review id={id} />}
+                    {user && console.log('showRatingInput:', showRatingInput, 'showReviewInput:', showReviewInput, 'id:', id)}
                     {/* <div className="rat-rev">
-                        {user && !showRatingInput && <Rating id={id} />}
-                        {user && !showReviewInput && <Review id={id} />}
 
                         {showRatingInput && console.log('showRatingInput:', showRatingInput)}
                         {!showRatingInput && user.id && console.log('!showRatingInput:', showRatingInput, '(currentRatingsUserIds.includes(user.id)):', (currentRatingsUserIds.includes(user.id)), 'currentRatingsUserIds:', currentRatingsUserIds, 'user:', user, 'userReviews', userReviews, 'currentRatings:', currentRatings, 'currentReviews:', currentReviews)}

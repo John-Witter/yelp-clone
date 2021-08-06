@@ -24,6 +24,7 @@
     justify-content: center;
     font-size: .85rem;
     font-weight: 525;
+    color: #3C4243;
 }
 
 .searchDisplayText {
@@ -41,6 +42,7 @@
     align-items: center;
     justify-content: center;
     background-color: #C9DEE1;
+    box-shadow: 3px 4px rgb(0 0 0 / 50%), 0 1px 3px hsla(0, 0%, 0%, .2);
 }
 
 .business-name {
@@ -67,6 +69,21 @@
 
 .business-frame:hover > .business-name{
     cursor: pointer;
+    /* color: #646F70; */
+    color: #282C2D;
+    /* box-shadow: 3px 3px #107383, -1em 0 .4em #0a454f; */
+}
+
+.business-frame:hover  .business-category{
     color: #646F70;
     /* box-shadow: 3px 3px #107383, -1em 0 .4em #0a454f; */
+}
+
+.business-frame:hover  .business-price{
+    color: #3C4243;
+    /* box-shadow: 3px 3px #107383, -1em 0 .4em #0a454f; */
+}
+
+.business-frame:hover {
+
 }

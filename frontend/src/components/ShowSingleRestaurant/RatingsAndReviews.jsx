@@ -61,8 +61,8 @@ export const RatingsAndReviews = ({ currentBusiness, currentUser = null }) => {
 
     return (
         <div className='rat-rev'>
-            {showRatingInput && currentBusiness && currentUser && userId && <Rating id={currentBusiness.data.id} />}
-            {showReviewInput && currentBusiness && currentUser && userId && <Review id={currentBusiness.data.id} />}
+            {/* {showRatingInput && currentBusiness && currentUser && userId && <Rating id={currentBusiness.data.id} />}
+            {showReviewInput && currentBusiness && currentUser && userId && <Review id={currentBusiness.data.id} />} */}
         </div>
     )
 }
