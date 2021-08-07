@@ -42,22 +42,32 @@
     align-items: center;
     justify-content: center;
     background-color: #C9DEE1;
-    box-shadow: 3px 4px rgb(0 0 0 / 50%), 0 1px 3px hsla(0, 0%, 0%, .2);
+    /* box-shadow: 3px 4px rgb(0 0 0 / 50%), 0 1px 3px hsla(0, 0%, 0%, .2); */
+    box-shadow: 2px 3px rgb(0 0 0 / 50%), 0 0px 2px hsla(0, 0%, 0%, .2);
 }
 
 .business-name {
     font-size: 1.25rem;
     font-weight: 530;
     text-align: center;
-    margin-bottom: .5rem;
+    /* margin-bottom: .5rem; */
 }
 
 .business-price {
     font-size: .75rem;
+    letter-spacing: 1px;
 }
 
 .business-rating {
     font-size: .75rem;
+}
+
+.price-rating {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* margin-top: 1rem; */
+    margin-bottom: .5rem;
 }
 
 .business-photo {
@@ -65,6 +75,13 @@
     width: 50%;
     margin-bottom: 15px;
 
+}
+
+.business-address {
+    font-size: .75rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .business-frame:hover > .business-name{
@@ -84,6 +101,10 @@
     /* box-shadow: 3px 3px #107383, -1em 0 .4em #0a454f; */
 }
 
-.business-frame:hover {
+/* .business-frame:hover {
     box-shadow: 2px 3px rgb(0 0 0 / 50%), 0 0px 2px hsla(0, 0%, 0%, .2);
+} */
+.business-frame:hover {
+    box-shadow: 3px 4px rgb(0 0 0 / 50%), 0 1px 3px hsla(0, 0%, 0%, .2);
+    
 }
