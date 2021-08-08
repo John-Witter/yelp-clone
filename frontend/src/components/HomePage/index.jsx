@@ -54,8 +54,13 @@ const HomePage = () => {
                             >
                                 <div className='business-name'>{business.name}</div>
                                 <div className="price-rating">
-                                    <div className='business-rating'> {business.review_count} reviews <Stars rating={business.rating} size='small' /></div>
-                                    <div className='business-price'>{business.price}</div>
+                                    <div className='business-rating'> <Stars rating={business.rating} size='small' />
+                                    </div>
+
+                                    <div className='business-price'>
+                                        <span className="review-count">{business.review_count} reviews</span>
+                                        {business.price}
+                                    </div>
                                 </div>
                                 <img src={business.image_url} alt={business.name}
                                     className='business-photo'

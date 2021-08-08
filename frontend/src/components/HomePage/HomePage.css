@@ -50,16 +50,22 @@
     font-size: 1.25rem;
     font-weight: 530;
     text-align: center;
-    /* margin-bottom: .5rem; */
+    margin-bottom: .5rem;
 }
 
 .business-price {
     font-size: .75rem;
     letter-spacing: 1px;
+    color: #3C4243;
 }
 
 .business-rating {
     font-size: .75rem;
+    color: #3C4243;
+}
+
+.review-count {
+    margin-right: .5rem;
 }
 
 .price-rating {
@@ -68,6 +74,8 @@
     justify-content: center;
     /* margin-top: 1rem; */
     margin-bottom: .5rem;
+    align-items: center;
+    flex-direction: column;
 }
 
 .business-photo {
@@ -75,6 +83,23 @@
     width: 50%;
     margin-bottom: 15px;
 
+}
+
+.business-category-container {
+    grid-area: cat;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    /* justify-content: flex-end; */
+    flex-wrap: wrap;
+    color: #3C4243;
+    margin-bottom: .25rem;
+}
+
+.business-category {
+    font-size: .75rem;
+    margin-left: .5rem;
+    margin-right: .5rem;
 }
 
 .business-address {
