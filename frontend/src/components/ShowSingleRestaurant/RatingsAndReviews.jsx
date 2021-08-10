@@ -92,6 +92,10 @@ export const RatingsAndReviews = ({ currentBusiness, currentUser = null }) => {
                                 else return null
                             })}
                         </div>
+                        
+                        <div className="user-reviews">
+                            {review.reviewText}
+                        </div>
 
 
                     </div>
