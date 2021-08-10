@@ -51,7 +51,7 @@ export const RatingsAndReviews = ({ currentBusiness, currentUser = null }) => {
 
         console.log('U S E R R E V I E W S currentUser: :', currentUser)
         console.log('U S E R R E V I E W S currentBusiness: :', currentBusiness)
-    }, [currentBusiness, currentUser])
+    }, [currentBusiness, currentUser, showRatingInput, showReviewInput])
 
     // create an object that contains userRatings and userReviews for
     // matching users
@@ -59,12 +59,42 @@ export const RatingsAndReviews = ({ currentBusiness, currentUser = null }) => {
     // new object
     // same for userReviews
 
+    const handleShowRatingInput = () => {
+        for (let i = 0; i < currentBusiness.userRatings.length; i++) {
+            let currentRating = currentBusiness.userRatings[i]
+            if (currentRating.userId === currentUser.id) {
+                setShowRatingInput(false)
+            }
+        }
+    }
+ 
+    const handleShowReviewInput = () => {
+        for (let i = 0; i < currentBusiness.userReviews.length; i++) {
+            let currentReview = currentBusiness.userReviews[i]
+            if (currentReview.userId === currentUser.id) {
+                setShowReviewInput(false)
+            }
+        }
+    }
+ 
 
     return (
         <div className='rat-rev'>
-            {showRatingInput && currentBusiness && currentUser && userId && <Rating id={`j`} />}
-            {showReviewInput && currentBusiness && currentUser && userId && <Review id={`j`} />}
-{/* 
+            {showRatingInput && currentBusiness && currentUser && userId && (
+                <>
+                    <Rating id={currentBusiness.data.id} />
+                    {handleShowRatingInput()}
+                    {/* {setShowRatingInput(false)} */}
+                </>
+            )}
+            {showReviewInput && currentBusiness && currentUser && userId && (
+                <>
+                    <Review id={currentBusiness.data.id} />
+                    {handleShowReviewInput()}
+                    {/* {setShowReviewInput(false)} */}
+                </>
+            )}
+            {/* 
             {currentBusiness && <RatingsAndReviews currentBusiness={currentBusiness} currentUser={currentUser} />}
             {currentUser && showRatingInput && <Rating id={currentBusiness.data.id} />}
             {currentUser && showReviewInput && <Review id={currentBusiness.data.id} />} */}
