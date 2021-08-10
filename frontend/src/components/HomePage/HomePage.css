@@ -107,21 +107,26 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: #2A2E2E;
 }
 
-.business-frame:hover > .business-name{
+ .business-address-line-1 .business-address-line-2 {
+     font-size: .75rem;
+ }
+
+.business-frame:hover > .business-name {
     cursor: pointer;
     /* color: #646F70; */
     color: #282C2D;
     /* box-shadow: 3px 3px #107383, -1em 0 .4em #0a454f; */
 }
 
-.business-frame:hover  .business-category{
+.business-frame:hover .business-category{
     color: #646F70;
     /* box-shadow: 3px 3px #107383, -1em 0 .4em #0a454f; */
 }
 
-.business-frame:hover  .business-price{
+.business-frame:hover .business-price, .price-rating, .business-category {
     color: #3C4243;
     /* box-shadow: 3px 3px #107383, -1em 0 .4em #0a454f; */
 }
