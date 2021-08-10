@@ -117,10 +117,14 @@ const ShowSingleRestaurant = () => {
                 </div>}
 
                 <div className="ra-ra-map">
-                    {currentBusiness && <RatingsAndReviews currentBusiness={currentBusiness} currentUser={user} />}
+
+                    <RatingsAndReviews currentBusiness={currentBusiness} currentUser={user} />
+
+
+                    {/* {currentBusiness && <RatingsAndReviews currentBusiness={currentBusiness} currentUser={user} />}
                     {user && showRatingInput && <Rating id={id} />}
                     {user && showReviewInput && <Review id={id} />}
-                    {user && console.log('showRatingInput:', showRatingInput, 'showReviewInput:', showReviewInput, 'id:', id)}
+                    {user && console.log('showRatingInput:', showRatingInput, 'showReviewInput:', showReviewInput, 'id:', id)} */}
                     {/* <div className="rat-rev">
 
                         {showRatingInput && console.log('showRatingInput:', showRatingInput)}

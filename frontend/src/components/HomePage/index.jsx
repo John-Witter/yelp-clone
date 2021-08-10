@@ -26,6 +26,7 @@ const HomePage = () => {
             }
         }
         getUserLocation()
+        console.log('businessObj::::', businessesObj)
     }, [dispatch])
 
     useEffect(() => {
@@ -45,7 +46,7 @@ const HomePage = () => {
                 <h1 className='tag-line'>Find businesses anywhere!</h1>
                 <p className='search-term-result'>The following results are based on the most recent search of "{searchTerm}" near "{location}"</p>
             </div>}
-            {location && searchTerm && location && businessesObj &&
+            {location && searchTerm && location && businessesObj && businessesObj.length &&
                 <div>
                     <div className='business-parent'>
                         {businessesObj?.map((business, idx) => (
@@ -79,11 +80,10 @@ const HomePage = () => {
 
                                 <div className="business-address">
                                     <div className="business-address-line-1">
-                                        {business.location.display_address[0]}
+                                        {business?.location?.display_address[0]}
                                     </div>
                                     <div className="business-address-line-2">
-                                        {business.location.display_address[1]}
-                                    </div>
+                                        {business.location && business.location.display_address && business.location.display_address[1] && business.location.display_address[1]} </div>
                                 </div>
 
                             </div>
