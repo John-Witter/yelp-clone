@@ -43,7 +43,7 @@
     justify-content: center;
     background-color: #C9DEE1;
     /* box-shadow: 3px 4px rgb(0 0 0 / 50%), 0 1px 3px hsla(0, 0%, 0%, .2); */
-    box-shadow: 2px 3px rgb(0 0 0 / 50%), 0 0px 2px hsla(0, 0%, 0%, .2);
+    box-shadow: 2px 3px rgb(0 0 0 / .2), 0 0px 2px hsla(0, 0%, 0%, .2);
 }
 
 .business-name {
@@ -135,6 +135,6 @@
     box-shadow: 2px 3px rgb(0 0 0 / 50%), 0 0px 2px hsla(0, 0%, 0%, .2);
 } */
 .business-frame:hover {
-    box-shadow: 3px 4px rgb(0 0 0 / 50%), 0 1px 3px hsla(0, 0%, 0%, .2);
+    box-shadow: 4px 5px rgb(0 0 0 / .3), 0 1px 3px hsla(0, 0%, 0%, .2)
     
 }
