@@ -62,9 +62,16 @@ export const RatingsAndReviews = ({ currentBusiness, currentUser = null }) => {
 
     return (
         <div className='rat-rev'>
-            {/* {showRatingInput && currentBusiness && currentUser && userId && <Rating id={currentBusiness.data.id} />}
-            {showReviewInput && currentBusiness && currentUser && userId && <Review id={currentBusiness.data.id} />} */}
-            {currentUser && currentBusiness && currentBusiness.userReviews && currentBusiness.userReviews.map((review, idx) => {
+            {showRatingInput && currentBusiness && currentUser && userId && <Rating id={`j`} />}
+            {showReviewInput && currentBusiness && currentUser && userId && <Review id={`j`} />}
+{/* 
+            {currentBusiness && <RatingsAndReviews currentBusiness={currentBusiness} currentUser={currentUser} />}
+            {currentUser && showRatingInput && <Rating id={currentBusiness.data.id} />}
+            {currentUser && showReviewInput && <Review id={currentBusiness.data.id} />} */}
+            {currentUser && console.log('showRatingInput:', showRatingInput, 'showReviewInput:', showReviewInput)}
+
+
+            {currentBusiness && currentBusiness.userReviews && currentBusiness.userReviews.map((review, idx) => {
                 return (
                     <div className="user-rat-rev" key={`user-rat-rev ${idx}`}>
                         <div className="user-name">
