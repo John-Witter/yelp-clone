@@ -68,13 +68,12 @@ export const RatingsAndReviews = ({ currentBusiness, currentUser = null }) => {
                 return (
                     <div className="user-rat-rev" key={`user-rat-rev ${idx}`}>
                         <div className="user-name">
-                            <img 
+                            <img
                                 className="yelp-user-photo user-photo"
-                                src="https://images.unsplash.com/photo-1547354142-526457358bb7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHNpbGhvdWV0dGV8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60" 
-                                alt="profile-pic" 
-                            /> 
+                                src="https://images.unsplash.com/photo-1547354142-526457358bb7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHNpbGhvdWV0dGV8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"
+                                alt="profile-pic"
+                            />
                             <span className="username">
-
                                 {review.User.username}
                             </span>
                             <span className="review-time-created">
@@ -87,20 +86,50 @@ export const RatingsAndReviews = ({ currentBusiness, currentUser = null }) => {
                                 if (rating.userId === review.userId) {
                                     return (
                                         <Stars rating={rating.rating} size='small' key={`rating-${rating.businessId}`} />
-                                    )                                
+                                    )
                                 }
                                 else return null
                             })}
                         </div>
-                        
+
                         <div className="user-reviews">
                             {review.reviewText}
                         </div>
-
-
+                        {/* end user-rat-rev */}
                     </div>
                 )
             })}
+
+            {currentBusiness && currentBusiness.yelpReviews && currentBusiness.yelpReviews.reviews.map(review => (
+                <div className="yelp-rat-rev" key={`yelp-rev ${review.id}`}>
+                    <div className="yelp-user-photo-container">
+                        <img
+                            className="yelp-user-photo"
+                            src={review.user.image_url ? review.user.image_url : "https://images.unsplash.com/photo-1547354142-526457358bb7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHNpbGhvdWV0dGV8ZW58MHwyfDB8fA%3D%3D&auto=format&fit=crop&w=500&q=60"}
+                            alt={`${review.user.name}`}
+                        />
+                        <div className="yelp-review-user">
+                            <span className="yelp-user-name">
+                                {review.user.name}
+                            </span>
+                            <span className='review-time-created'>{review.time_created.split(' ')[0]}
+                            </span>
+                        </div>
+                    </div>
+
+                    <div className="yelp-rating">
+                        <Stars rating={review.rating} size='small' />
+                    </div>
+
+                    <div className="yelp-review">
+                        {review.text}
+                    </div>
+
+                    {/* end yelp-rat-rev */}
+                </div>
+            ))}
+
+            {/* end rat-rev */}
         </div>
     )
 }
