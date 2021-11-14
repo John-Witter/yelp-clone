@@ -34,7 +34,7 @@ export const postRating = (businessId, userId, rating) => async (dispatch) => {
 
     if (res.ok) {
         const data = await res.json()
-        console.log('!!!!!!postRating data:', data)
+        // console.log('!!!!!!postRating data:', data)
         dispatch(postRatingAction(data))
     }
 }
@@ -45,7 +45,7 @@ export default function ratingReducer(state = {}, action) {
     switch(action.type) {
         case GET_RATINGS_FOR_BUSINESS:
             const ratings = {}
-            console.log('!!!GET_RATINGS_FOR_BUSINESS action:', action)
+            // console.log('!!!GET_RATINGS_FOR_BUSINESS action:', action)
             action.ratings.ratings.forEach(rating => {
                 const userId = rating.userId
                 ratings[userId] = rating
@@ -53,7 +53,7 @@ export default function ratingReducer(state = {}, action) {
             return ratings
 
         case POST_RATING:
-            console.log('!!!!!!POST_RATING action:', action)
+            // console.log('!!!!!!POST_RATING action:', action)
             const newRating = {}
             const userId = action.rating.newRating.userId
             newRating[userId] = action.rating.newRating

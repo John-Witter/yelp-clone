@@ -27,7 +27,7 @@
             {review.reviewText && review.reviewText}
         </div>
     </div>
-})}
+})}}
 
 
 
@@ -38,8 +38,8 @@
 {/* {currentBusiness && <RatingsAndReviews currentBusiness={currentBusiness} currentUser={user} />}
                     {user && showRatingInput && <Rating id={id} />}
                     {user && showReviewInput && <Review id={id} />}
-                    {user && console.log('showRatingInput:', showRatingInput, 'showReviewInput:', showReviewInput, 'id:', id)} */}
-{/* <div className="rat-rev">
+                    {user && console.log('showRatingInput:', showRatingInput, 'showReviewInput:', showReviewInput, 'id:', id)} */
+/* <div className="rat-rev">
 
                         {showRatingInput && console.log('showRatingInput:', showRatingInput)}
                         {!showRatingInput && user.id && console.log('!showRatingInput:', showRatingInput, '(currentRatingsUserIds.includes(user.id)):', (currentRatingsUserIds.includes(user.id)), 'currentRatingsUserIds:', currentRatingsUserIds, 'user:', user, 'userReviews', userReviews, 'currentRatings:', currentRatings, 'currentReviews:', currentReviews)}
@@ -86,6 +86,5 @@
                                 </div>
                             )
                         })}
-                    </div> */}
+                    </div> */
 
-*/
