@@ -13,7 +13,7 @@ router.get(
                 businessId: businessId
             }
         })
-        console.log("!!!!!!GET RATINGS:", ratings)
+        // console.log("!!!!!!GET RATINGS:", ratings)
         res.json({ ratings })
     })
 )
@@ -25,9 +25,9 @@ router.post(
         const userId = req.body.userId
         const rating = req.body.rating
 
-        console.log('rating', rating)
-        console.log('userId', userId)
-        console.log('businessId', businessId)
+        // console.log('rating', rating)
+        // console.log('userId', userId)
+        // console.log('businessId', businessId)
 
         const prevRating = Rating.findOne({ where: { userId: userId, businessId: businessId } })
 

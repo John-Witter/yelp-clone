@@ -26,7 +26,9 @@ const HomePage = () => {
             }
         }
         getUserLocation()
-        console.log('businessObj::::', businessesObj)
+        // console.log('businessObj::::', businessesObj)
+        // console.log('location::::', location)
+        if (!location) setLocation('Miami')
     }, [dispatch])
 
     useEffect(() => {

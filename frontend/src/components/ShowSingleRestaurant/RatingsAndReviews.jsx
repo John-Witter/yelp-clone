@@ -49,8 +49,8 @@ export const RatingsAndReviews = ({ currentBusiness, currentUser = null }) => {
 
         }
 
-        console.log('U S E R R E V I E W S currentUser: :', currentUser)
-        console.log('U S E R R E V I E W S currentBusiness: :', currentBusiness)
+        // console.log('U S E R R E V I E W S currentUser: :', currentUser)
+        // console.log('U S E R R E V I E W S currentBusiness: :', currentBusiness)
     }, [currentBusiness, currentUser, showRatingInput, showReviewInput])
 
     // create an object that contains userRatings and userReviews for
@@ -98,7 +98,7 @@ export const RatingsAndReviews = ({ currentBusiness, currentUser = null }) => {
             {currentBusiness && <RatingsAndReviews currentBusiness={currentBusiness} currentUser={currentUser} />}
             {currentUser && showRatingInput && <Rating id={currentBusiness.data.id} />}
             {currentUser && showReviewInput && <Review id={currentBusiness.data.id} />} */}
-            {currentUser && console.log('showRatingInput:', showRatingInput, 'showReviewInput:', showReviewInput)}
+            {/* {currentUser && console.log('showRatingInput:', showRatingInput, 'showReviewInput:', showReviewInput)} */}
 
 
             {currentBusiness && currentBusiness.userReviews && currentBusiness.userReviews.map((review, idx) => {

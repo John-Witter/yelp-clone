@@ -30,7 +30,7 @@ const ShowSingleRestaurant = () => {
     useEffect(() => {
         const getCurrentBusiness = async () => {
             const currentBusiness111 = await dispatch(getBusinessById(id))
-            console.log('currentBusiness111', currentBusiness111)
+            // console.log('currentBusiness111', currentBusiness111)
             setCurrentBusiness(currentBusiness111)
             setBusiness(currentBusiness111.data)
             setYelpReviews(currentBusiness111.yelpReviews.reviews)
@@ -53,8 +53,8 @@ const ShowSingleRestaurant = () => {
         dispatch(getReviewsForBusiness(id))
         dispatch(getRatingsForBusiness(id))
         getCurrentBusiness()
-        Object.keys(currentRatings).length && console.log('!!!!!!currentRatings:', currentRatings)
-        Object.keys(currentReviews).length && console.log('!!!!!!currentReviews:', currentReviews)
+        // Object.keys(currentRatings).length && console.log('!!!!!!currentRatings:', currentRatings)
+        // Object.keys(currentReviews).length && console.log('!!!!!!currentReviews:', currentReviews)
         // currentRatings && console.log('currentRatings', currentRatings)
         // currentRatingsUserIds && console.log('currentRatingsUserId', currentRatingsUserIds)
     }, [dispatch, id])

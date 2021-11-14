@@ -13,7 +13,7 @@ router.get(
                 businessId: businessId
             }
         })
-        console.log('!!!!!!GET REVIEWS:', reviews)
+        // console.log('!!!!!!GET REVIEWS:', reviews)
         res.json({ reviews })
     })
 )
@@ -25,8 +25,8 @@ router.post(
         const userId = req.body.userId
         const reviewText = req.body.reviewText
 
-        console.log('reviewText', reviewText)
-        console.log('userId', userId)
+        // console.log('reviewText', reviewText)
+        // console.log('userId', userId)
 
         const prevReview = Review.findOne({
             where: {
