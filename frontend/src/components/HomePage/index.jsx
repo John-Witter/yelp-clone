@@ -5,6 +5,7 @@ import { getBusinessByName } from "../../store/yelp-api";
 import Stars from "../Yelp Stars/Stars";
 // import { getUserLocation } from "../../store/userLocation";
 import './HomePage.css'
+import { Event } from "../GoogleAnalytics/GoogleAnalytics";
 
 const HomePage = () => {
     // const userLocation = useSelector(state => state.userLocation)
@@ -38,6 +39,7 @@ const HomePage = () => {
     }, [location])
 
     const handleBusinessClick = (id) => {
+        Event("BUSINESS EVENT", `Link clicked for business with id: ${id}`, "HOMEPAGE")
         history.push(`/businesses/${id}`)
     }
 

@@ -12,28 +12,39 @@ const Navigation = ({ isLoaded }) => {
     const sessionUser = useSelector((state) => state.session.user);
 
     const demoUser = () => {
-    Event("DEMO EVENT", "Link to demo clicked", "NAV_BAR");
-    
-    let credential = "demo@user.io";
-    let password = "password";
-    dispatch(sessionActions.login({ credential, password })).catch(
-        async (res) => {
-            await res.json();
-        }
+        Event("DEMO EVENT", "Link to demo clicked", "NAV_BAR");
+
+        let credential = "demo@user.io";
+        let password = "password";
+        dispatch(sessionActions.login({ credential, password })).catch(
+            async (res) => {
+                await res.json();
+            }
         );
     };
-    
+
     const logout = (e) => {
         // const searchObj = { 'searchTerm': 'restaurants', "location": 'manhattan' }
         // window.localStorage.setItem('searchObj', JSON.stringify(searchObj))
         Event("LOGOUT EVENT", "Link to logout clicked", "NAV_BAR");
-        
+
         dispatch(sessionActions.logout());
     };
 
     return (
         <ul className="nav-body">
-            <NavLink exact to="/" className="title">
+            <NavLink
+                exact
+                to="/"
+                className="title"
+                onClick={() => {
+                    Event(
+                        "HOMEPAGE EVENT",
+                        "Link to homepage clicked",
+                        "NAV_BAR"
+                    );
+                }}
+            >
                 <div className="title">Yelp Jr.</div>
             </NavLink>
             <RestaurantSearch className="search" />

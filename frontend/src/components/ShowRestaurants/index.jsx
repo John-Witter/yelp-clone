@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { getBusinessByName } from "../../store/yelp-api";
+import { Event } from "../GoogleAnalytics/GoogleAnalytics";
 import Stars from "../Yelp Stars/Stars";
 import './ShowRestaurants.css'
 
@@ -18,6 +19,11 @@ const ShowRestaurants = () => {
     }, [dispatch])
 
     const handleBusinessClick = (id) => {
+                Event(
+                    "BUSINESS EVENT",
+                    `Link clicked for business with id: ${id}`,
+                    "ShowRestaurants_PAGE"
+                );
         history.push(`/businesses/${id}`)
     }
 
