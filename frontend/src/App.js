@@ -13,6 +13,7 @@ import ShowSingleRestaurant from './components/ShowSingleRestaurant'
 import HomePage from './components/HomePage'
 import * as sessionActions from './store/session'
 import { Footer } from "./components/Footer/Footer";
+import { PageView, initGA} from './components/GoogleAnalytics.js'
 
 function App() {
   const dispatch = useDispatch()
@@ -20,6 +21,10 @@ function App() {
 
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true))
+
+    // initialize ReactGA
+    initGA("UA-213353187-2");
+    PageView();    
   }, [dispatch])
 
   return isLoaded && (
