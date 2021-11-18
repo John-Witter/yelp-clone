@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/John-Witter/authenticate-me/issues"
   },
-  "homepage": "https://github.com/John-Witter/authenticate-me#readme"
+  "homepage": "https://github.com/John-Witter/authenticate-me#readme",
+  "dependencies": {
+
+  }
 }
